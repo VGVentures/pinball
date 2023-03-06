@@ -139,8 +139,9 @@ void main() {
 
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'can be loaded',
+      flameTester.createGame,
       (game) async {
         final component = GameBlocStatusListener();
         await game.pump([component]);
@@ -177,8 +178,9 @@ void main() {
           );
         });
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'changes the backbox display',
+          flameTester.createGame,
           (game) async {
             final component = GameBlocStatusListener();
             final leaderboardRepository = _MockLeaderboardRepository();
@@ -195,8 +197,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'removes FlipperKeyControllingBehavior from Flipper',
+          flameTester.createGame,
           (game) async {
             final component = GameBlocStatusListener();
             final leaderboardRepository = _MockLeaderboardRepository();
@@ -228,8 +231,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'removes PlungerKeyControllingBehavior from Plunger',
+          flameTester.createGame,
           (game) async {
             final component = GameBlocStatusListener();
             final leaderboardRepository = _MockLeaderboardRepository();
@@ -262,8 +266,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'removes PlungerPullingBehavior from Plunger',
+          flameTester.createGame,
           (game) async {
             final component = GameBlocStatusListener();
             final leaderboardRepository = _MockLeaderboardRepository();
@@ -299,8 +304,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'plays the game over voice over',
+          flameTester.createGame,
           (game) async {
             final audioPlayer = _MockPinballAudioPlayer();
             final component = GameBlocStatusListener();
@@ -336,8 +342,9 @@ void main() {
           );
         });
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'plays the background music on start',
+          flameTester.createGame,
           (game) async {
             final audioPlayer = _MockPinballAudioPlayer();
             final component = GameBlocStatusListener();
@@ -357,8 +364,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'resets the GoogleWordCubit',
+          flameTester.createGame,
           (game) async {
             final googleWordBloc = _MockGoogleWordCubit();
             final component = GameBlocStatusListener();
@@ -374,8 +382,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'resets the DashBumpersCubit',
+          flameTester.createGame,
           (game) async {
             final dashBumpersBloc = _MockDashBumpersCubit();
             final component = GameBlocStatusListener();
@@ -391,8 +400,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'resets the SignpostCubit',
+          flameTester.createGame,
           (game) async {
             final signpostBloc = _MockSignpostCubit();
             final component = GameBlocStatusListener();
@@ -405,8 +415,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'adds FlipperKeyControllingBehavior to Flippers',
+          flameTester.createGame,
           (game) async {
             final component = GameBlocStatusListener();
             final leaderboardRepository = _MockLeaderboardRepository();
@@ -438,8 +449,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'adds PlungerKeyControllingBehavior to Plunger',
+          flameTester.createGame,
           (game) async {
             final component = GameBlocStatusListener();
             final leaderboardRepository = _MockLeaderboardRepository();
@@ -472,8 +484,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'adds PlungerPullingBehavior to Plunger',
+          flameTester.createGame,
           (game) async {
             final component = GameBlocStatusListener();
             final leaderboardRepository = _MockLeaderboardRepository();
@@ -503,8 +516,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'adds PlungerAutoPullingBehavior to Plunger',
+          flameTester.createGame,
           (game) async {
             final component = GameBlocStatusListener();
             final leaderboardRepository = _MockLeaderboardRepository();

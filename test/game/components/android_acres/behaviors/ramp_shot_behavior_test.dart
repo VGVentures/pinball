@@ -77,8 +77,9 @@ void main() {
 
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds a ScoringBehavior when hit',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();

@@ -16,8 +16,8 @@ class AssetsLoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final headline1 = Theme.of(context).textTheme.headline1;
-    return Container(
+    final headline1 = Theme.of(context).textTheme.displayLarge;
+    return DecoratedBox(
       decoration: const CrtBackground(),
       child: Center(
         child: Column(

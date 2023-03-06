@@ -10,7 +10,6 @@ Future<void> showMoreInformationDialog(BuildContext context) {
   return showDialog<void>(
     context: context,
     barrierColor: PinballColors.transparent,
-    barrierDismissible: true,
     builder: (_) {
       return Center(
         child: SizedBox(
@@ -59,7 +58,7 @@ class _LinkBoxHeader extends StatelessWidget {
       children: [
         Text(
           l10n.linkBoxTitle,
-          style: Theme.of(context).textTheme.headline3!.copyWith(
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
                 color: PinballColors.blue,
                 fontWeight: FontWeight.bold,
               ),
@@ -77,8 +76,8 @@ class _LinkBoxHeader extends StatelessWidget {
 
 class _LinkBoxDecoration extends StatelessWidget {
   const _LinkBoxDecoration({
-    Key? key,
     required this.child,
+    Key? key,
   }) : super(key: key);
 
   final Widget child;
@@ -140,9 +139,9 @@ class _LinkBoxBody extends StatelessWidget {
 
 class _TextLink extends StatelessWidget {
   const _TextLink({
-    Key? key,
     required this.text,
     required this.link,
+    Key? key,
   }) : super(key: key);
 
   final String text;
@@ -156,7 +155,7 @@ class _TextLink extends StatelessWidget {
       onTap: () => openLink(link),
       child: Text(
         text,
-        style: theme.textTheme.headline5!.copyWith(
+        style: theme.textTheme.headlineSmall!.copyWith(
           color: PinballColors.white,
         ),
         overflow: TextOverflow.ellipsis,
@@ -176,7 +175,8 @@ class _MadeWithFlutterAndFirebase extends StatelessWidget {
       textAlign: TextAlign.center,
       text: TextSpan(
         text: l10n.linkBoxMadeWithText,
-        style: theme.textTheme.headline5!.copyWith(color: PinballColors.white),
+        style: theme.textTheme.headlineSmall!
+            .copyWith(color: PinballColors.white),
         children: <TextSpan>[
           TextSpan(
             text: l10n.linkBoxFlutterLinkText,
@@ -191,7 +191,7 @@ class _MadeWithFlutterAndFirebase extends StatelessWidget {
             text: l10n.linkBoxFirebaseLinkText,
             recognizer: TapGestureRecognizer()
               ..onTap = () => openLink(_MoreInformationUrl.firebaseWebsite),
-            style: theme.textTheme.headline5!.copyWith(
+            style: theme.textTheme.headlineSmall!.copyWith(
               decoration: TextDecoration.underline,
             ),
           ),

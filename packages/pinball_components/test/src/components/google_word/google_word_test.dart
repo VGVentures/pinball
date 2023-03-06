@@ -46,8 +46,9 @@ void main() {
       expect(GoogleWord(position: Vector2.zero()), isA<GoogleWord>());
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads letters correctly',
+      flameTester.createGame,
       (game) async {
         final googleWord = GoogleWord(position: Vector2.zero());
         await game.pump(googleWord);

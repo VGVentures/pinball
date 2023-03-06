@@ -32,9 +32,10 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'preSolve disables contact when the mouth is open '
         'and there is not ball in the mouth',
+        flameTester.createGame,
         (game) async {
           final behavior = ChromeDinoMouthOpeningBehavior();
           final bloc = _MockChromeDinoCubit();

@@ -24,10 +24,10 @@ abstract class LayerSensor extends BodyComponent with InitialPosition, Layered {
   /// {@macro layer_sensor}
   LayerSensor({
     required this.insideLayer,
-    Layer? outsideLayer,
     required this.insideZIndex,
-    int? outsideZIndex,
     required this.orientation,
+    Layer? outsideLayer,
+    int? outsideZIndex,
   })  : outsideLayer = outsideLayer ?? Layer.board,
         outsideZIndex = outsideZIndex ?? ZIndexes.ballOnBoard,
         super(

@@ -77,8 +77,9 @@ void main() {
 
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'when hits are multiples of 10 times adds a ScoringBehavior',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();
@@ -106,8 +107,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       "when hits are not multiple of 10 times doesn't add any ScoringBehavior",
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();

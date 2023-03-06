@@ -44,7 +44,7 @@ void main() {
 
     // We cannot use pumpApp when we are testing animation because
     // animation tests needs to be run and check in tester.runAsync
-    Future<void> _pumpAppWithWidget(WidgetTester tester) async {
+    Future<void> pumpAppWithWidget(WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(
           theme: PinballTheme.standard,
@@ -115,7 +115,7 @@ void main() {
             initialState: initialState,
           );
 
-          await _pumpAppWithWidget(tester);
+          await pumpAppWithWidget(tester);
           await tester.pump();
 
           expect(find.byType(BonusAnimation), findsOneWidget);
@@ -135,7 +135,7 @@ void main() {
             Stream.value(state),
             initialState: initialState,
           );
-          await _pumpAppWithWidget(tester);
+          await pumpAppWithWidget(tester);
           await tester.pump();
           await Future<void>.delayed(const Duration(seconds: 6));
           await expectLater(find.byType(ScoreView), findsOneWidget);

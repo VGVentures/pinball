@@ -31,9 +31,10 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'beginContact emits onBallContacted with the bumper ID '
         'when contacts with a ball',
+        flameTester.createGame,
         (game) async {
           final behavior = DashBumperBallContactBehavior();
           final bloc = _MockDashBumpersCubit();

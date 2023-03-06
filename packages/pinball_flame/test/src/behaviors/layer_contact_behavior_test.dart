@@ -34,7 +34,8 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<Forge2DGame>('can be loaded',
+        flameTester.createGame, (game) async {
       final behavior = LayerContactBehavior(layer: Layer.all);
       final parent = _TestBodyComponent();
       await game.ensureAdd(parent);
@@ -42,7 +43,8 @@ void main() {
       expect(parent.children, contains(behavior));
     });
 
-    flameTester.test('beginContact changes layer', (game) async {
+    testWithGame<Forge2DGame>('beginContact changes layer',
+        flameTester.createGame, (game) async {
       const oldLayer = Layer.all;
       const newLayer = Layer.board;
       final behavior = LayerContactBehavior(layer: newLayer);
@@ -57,7 +59,8 @@ void main() {
       expect(component.layer, newLayer);
     });
 
-    flameTester.test('endContact changes layer', (game) async {
+    testWithGame<Forge2DGame>('endContact changes layer',
+        flameTester.createGame, (game) async {
       const oldLayer = Layer.all;
       const newLayer = Layer.board;
       final behavior = LayerContactBehavior(

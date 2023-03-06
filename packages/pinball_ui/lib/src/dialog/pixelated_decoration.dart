@@ -7,9 +7,9 @@ import 'package:pinball_ui/gen/gen.dart';
 class PixelatedDecoration extends StatelessWidget {
   /// {@macro pixelated_decoration}
   const PixelatedDecoration({
-    Key? key,
     required Widget header,
     required Widget body,
+    Key? key,
   })  : _header = header,
         _body = body,
         super(key: key);

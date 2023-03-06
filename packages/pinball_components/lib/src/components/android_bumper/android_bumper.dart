@@ -21,8 +21,8 @@ class AndroidBumper extends BodyComponent with InitialPosition, ZIndex {
     required String litAssetPath,
     required String dimmedAssetPath,
     required Vector2 spritePosition,
-    Iterable<Component>? children,
     required this.bloc,
+    Iterable<Component>? children,
   })  : _majorRadius = majorRadius,
         _minorRadius = minorRadius,
         super(

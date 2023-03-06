@@ -11,8 +11,8 @@ import 'package:pinball_ui/pinball_ui.dart';
 class MobileControls extends StatelessWidget {
   /// {@macro mobile_controls}
   const MobileControls({
-    Key? key,
     required this.game,
+    Key? key,
   }) : super(key: key);
 
   /// Game instance

@@ -25,14 +25,16 @@ void main() {
       );
     });
 
-    flameTester.test('loads correctly', (game) async {
+    testWithGame<FlameGame>('loads correctly',
+        flameTester.createGame, (game) async {
       final component = CanvasComponent();
       await game.ensureAdd(component);
       expect(game.contains(component), isTrue);
     });
 
-    flameTester.test(
+    testWithGame<FlameGame>(
       'adds children',
+      flameTester.createGame,
       (game) async {
         final component = Component();
         final canvas = CanvasComponent(

@@ -67,8 +67,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'loads',
+        flameTester.createGame,
         (game) async {
           final behavior = CharacterSelectionBehavior();
           await game.pump([behavior]);
@@ -76,9 +77,10 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'onNewState does not call onCharacterSelected on the arcade background '
         'bloc when platform is mobile',
+        flameTester.createGame,
         (game) async {
           final platformHelper = _MockPlatformHelper();
           when(() => platformHelper.isMobile).thenAnswer((_) => true);
@@ -110,9 +112,10 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'onNewState calls onCharacterSelected on the arcade background '
         'bloc when platform is not mobile',
+        flameTester.createGame,
         (game) async {
           final platformHelper = _MockPlatformHelper();
           when(() => platformHelper.isMobile).thenAnswer((_) => false);
@@ -147,8 +150,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'onNewState calls onCharacterSelected on the ball bloc',
+        flameTester.createGame,
         (game) async {
           final platformHelper = _MockPlatformHelper();
           when(() => platformHelper.isMobile).thenAnswer((_) => false);

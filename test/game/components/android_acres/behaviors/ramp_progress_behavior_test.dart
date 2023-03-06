@@ -73,9 +73,10 @@ void main() {
 
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds onProgressed '
       'when hits and multiplier are less than 6',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();
@@ -109,9 +110,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds onProgressed '
       'when hits and multiplier are 6 but arrow is not fully lit',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();
@@ -145,9 +147,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       "doesn't add onProgressed "
       'when hits and multiplier are 6 and arrow is fully lit',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();
@@ -186,9 +189,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds onProgressed to dim arrow '
       'when arrow is fully lit after hit and multiplier is less than 6',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();
@@ -227,9 +231,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       "doesn't add onProgressed to dim arrow "
       'when arrow is not fully lit after hit',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();
@@ -268,9 +273,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       "doesn't add onProgressed to dim arrow "
       'when multiplier is 6 after hit',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();

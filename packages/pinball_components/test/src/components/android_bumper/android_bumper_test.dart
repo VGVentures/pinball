@@ -26,25 +26,29 @@ void main() {
   final flameTester = FlameTester(() => TestGame(assets));
 
   group('AndroidBumper', () {
-    flameTester.test('"a" loads correctly', (game) async {
+    testWithGame<TestGame>('"a" loads correctly', flameTester.createGame,
+        (game) async {
       final androidBumper = AndroidBumper.a();
       await game.ensureAdd(androidBumper);
       expect(game.contains(androidBumper), isTrue);
     });
 
-    flameTester.test('"b" loads correctly', (game) async {
+    testWithGame<TestGame>('"b" loads correctly', flameTester.createGame,
+        (game) async {
       final androidBumper = AndroidBumper.b();
       await game.ensureAdd(androidBumper);
       expect(game.contains(androidBumper), isTrue);
     });
 
-    flameTester.test('"cow" loads correctly', (game) async {
+    testWithGame<TestGame>('"cow" loads correctly', flameTester.createGame,
+        (game) async {
       final androidBumper = AndroidBumper.cow();
       await game.ensureAdd(androidBumper);
       expect(game.contains(androidBumper), isTrue);
     });
 
-    flameTester.test('closes bloc when removed', (game) async {
+    testWithGame<TestGame>('closes bloc when removed', flameTester.createGame,
+        (game) async {
       final bloc = _MockAndroidBumperCubit();
       whenListen(
         bloc,
@@ -62,7 +66,8 @@ void main() {
     });
 
     group('adds', () {
-      flameTester.test('an AndroidBumperBallContactBehavior', (game) async {
+      testWithGame<TestGame>('an AndroidBumperBallContactBehavior', flameTester.createGame,
+        (game) async {
         final androidBumper = AndroidBumper.a();
         await game.ensureAdd(androidBumper);
         expect(
@@ -73,7 +78,8 @@ void main() {
         );
       });
 
-      flameTester.test('an AndroidBumperBlinkingBehavior', (game) async {
+      testWithGame<TestGame>('an AndroidBumperBlinkingBehavior', flameTester.createGame,
+        (game) async {
         final androidBumper = AndroidBumper.a();
         await game.ensureAdd(androidBumper);
         expect(
@@ -86,7 +92,8 @@ void main() {
     });
 
     group("'a' adds", () {
-      flameTester.test('new children', (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+        (game) async {
         final component = Component();
         final androidBumper = AndroidBumper.a(
           children: [component],
@@ -95,7 +102,8 @@ void main() {
         expect(androidBumper.children, contains(component));
       });
 
-      flameTester.test('a BumpingBehavior', (game) async {
+      testWithGame<TestGame>('a BumpingBehavior', flameTester.createGame,
+        (game) async {
         final androidBumper = AndroidBumper.a();
         await game.ensureAdd(androidBumper);
         expect(
@@ -106,7 +114,8 @@ void main() {
     });
 
     group("'b' adds", () {
-      flameTester.test('new children', (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+        (game) async {
         final component = Component();
         final androidBumper = AndroidBumper.b(
           children: [component],
@@ -115,7 +124,8 @@ void main() {
         expect(androidBumper.children, contains(component));
       });
 
-      flameTester.test('a BumpingBehavior', (game) async {
+      testWithGame<TestGame>('a BumpingBehavior', flameTester.createGame,
+        (game) async {
         final androidBumper = AndroidBumper.b();
         await game.ensureAdd(androidBumper);
         expect(
@@ -126,7 +136,8 @@ void main() {
     });
 
     group("'cow' adds", () {
-      flameTester.test('new children', (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+        (game) async {
         final component = Component();
         final androidBumper = AndroidBumper.cow(
           children: [component],
@@ -135,7 +146,8 @@ void main() {
         expect(androidBumper.children, contains(component));
       });
 
-      flameTester.test('a BumpingBehavior', (game) async {
+      testWithGame<TestGame>('a BumpingBehavior', flameTester.createGame,
+        (game) async {
         final androidBumper = AndroidBumper.cow();
         await game.ensureAdd(androidBumper);
         expect(

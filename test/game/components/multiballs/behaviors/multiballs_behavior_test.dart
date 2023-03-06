@@ -49,8 +49,9 @@ void main() {
       );
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'can be loaded',
+      flameTester.createGame,
       (game) async {
         final parent = Multiballs.test();
         final behavior = MultiballsBehavior();

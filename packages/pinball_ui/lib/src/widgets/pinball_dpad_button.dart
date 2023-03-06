@@ -38,9 +38,9 @@ extension _PinballDpadDirectionX on PinballDpadDirection {
 class PinballDpadButton extends StatelessWidget {
   /// {@macro pinball_dpad_button}
   const PinballDpadButton({
-    Key? key,
     required this.direction,
     required this.onTap,
+    Key? key,
   }) : super(key: key);
 
   /// Which [PinballDpadDirection] this button is.

@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/cupertino.dart';
 
 part 'game_event.dart';
 part 'game_state.dart';
@@ -18,15 +18,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   static const _maxScore = 9999999999;
 
-  void _onGameStarted(GameStarted _, Emitter emit) {
+  void _onGameStarted(GameStarted _, Emitter<GameState> emit) {
     emit(const GameState.initial().copyWith(status: GameStatus.playing));
   }
 
-  void _onGameOver(GameOver _, Emitter emit) {
+  void _onGameOver(GameOver _, Emitter<GameState> emit) {
     emit(state.copyWith(status: GameStatus.gameOver));
   }
 
-  void _onRoundLost(RoundLost event, Emitter emit) {
+  void _onRoundLost(RoundLost event, Emitter<GameState> emit) {
     final score = math.min(
       state.totalScore + state.roundScore * state.multiplier,
       _maxScore,
@@ -44,7 +44,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     );
   }
 
-  void _onScored(Scored event, Emitter emit) {
+  void _onScored(Scored event, Emitter<GameState> emit) {
     if (state.status.isPlaying) {
       final combinedScore = math.min(
         state.totalScore + state.roundScore + event.points,
@@ -54,7 +54,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onIncreasedMultiplier(MultiplierIncreased event, Emitter emit) {
+  void _onIncreasedMultiplier(MultiplierIncreased event, Emitter<GameState> emit) {
     if (state.status.isPlaying) {
       emit(
         state.copyWith(
@@ -64,7 +64,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onBonusActivated(BonusActivated event, Emitter emit) {
+  void _onBonusActivated(BonusActivated event, Emitter<GameState> emit) {
     emit(
       state.copyWith(
         bonusHistory: [...state.bonusHistory, event.bonus],

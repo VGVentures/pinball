@@ -39,9 +39,10 @@ void main() {
   group('FlutterForestBonusBehavior', () {
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds a ball with a BallImpulsingBehavior to the game onTick '
       'resulting in a -40 x impulse',
+      flameTester.createGame,
       (game) async {
         await game.onLoad();
         final behavior = BonusBallSpawningBehavior();

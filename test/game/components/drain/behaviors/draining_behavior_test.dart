@@ -46,8 +46,9 @@ void main() {
         expect(DrainingBehavior(), isA<DrainingBehavior>());
       });
 
-      flameTester.test(
+      testWithGame<Forge2DGame>(
         'loads',
+        flameTester.createGame,
         (game) async {
           final parent = Drain.test();
           final behavior = DrainingBehavior();
@@ -66,8 +67,9 @@ void main() {
 
         final flameBlocTester = FlameTester(_TestGame.new);
 
-        flameBlocTester.test(
+        testWithGame<_TestGame>(
           'adds RoundLost when no balls left',
+          flameBlocTester.createGame,
           (game) async {
             final drain = Drain.test();
             final behavior = DrainingBehavior();
@@ -87,8 +89,9 @@ void main() {
           },
         );
 
-        flameBlocTester.test(
+        testWithGame<_TestGame>(
           "doesn't add RoundLost when there are balls left",
+          flameBlocTester.createGame,
           (game) async {
             final drain = Drain.test();
             final behavior = DrainingBehavior();
@@ -109,8 +112,9 @@ void main() {
           },
         );
 
-        flameBlocTester.test(
+        testWithGame<_TestGame>(
           'removes the Ball',
+          flameBlocTester.createGame,
           (game) async {
             final drain = Drain.test();
             final behavior = DrainingBehavior();

@@ -28,8 +28,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final ball = ArcadeBackground();
         await game.ready();
@@ -39,8 +40,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'has only one SpriteComponent',
+      flameTester.createGame,
       (game) async {
         final ball = ArcadeBackground();
         await game.ready();
@@ -53,8 +55,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'ArcadeBackgroundSpriteComponent changes sprite onNewState',
+      flameTester.createGame,
       (game) async {
         final ball = ArcadeBackground();
         await game.ready();

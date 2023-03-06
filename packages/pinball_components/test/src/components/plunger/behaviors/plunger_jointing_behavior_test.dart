@@ -17,7 +17,8 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<Forge2DGame>('can be loaded',
+        flameTester.createGame, (game) async {
       final parent = Plunger.test();
       final behavior = PlungerJointingBehavior(compressionDistance: 0);
       await game.ensureAdd(parent);
@@ -25,7 +26,8 @@ void main() {
       expect(parent.children, contains(behavior));
     });
 
-    flameTester.test('creates a joint', (game) async {
+    testWithGame<Forge2DGame>('creates a joint',
+        flameTester.createGame, (game) async {
       final behavior = PlungerJointingBehavior(compressionDistance: 0);
       final parent = Plunger.test();
       await game.ensureAdd(parent);

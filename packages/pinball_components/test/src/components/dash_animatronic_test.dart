@@ -46,8 +46,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final dashAnimatronic = DashAnimatronic();
         await game.ensureAdd(dashAnimatronic);
@@ -56,7 +57,8 @@ void main() {
       },
     );
 
-    flameTester.test('adds new children', (game) async {
+    testWithGame<TestGame>('adds new children',
+        flameTester.createGame, (game) async {
       final component = Component();
       final dashAnimatronic = DashAnimatronic(
         children: [component],

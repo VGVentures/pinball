@@ -455,9 +455,9 @@ class SpaceshipRampBase extends BodyComponent
 class _SpaceshipRampOpening extends LayerSensor {
   /// {@macro spaceship_ramp_opening}
   _SpaceshipRampOpening({
+    required double rotation,
     Layer? outsideLayer,
     int? outsidePriority,
-    required double rotation,
   })  : _rotation = rotation,
         super(
           insideLayer: Layer.spaceshipEntranceRamp,

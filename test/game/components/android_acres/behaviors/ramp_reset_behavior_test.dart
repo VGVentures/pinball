@@ -73,8 +73,9 @@ void main() {
 
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'calls onReset when round lost',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = GameState.initial();
@@ -102,8 +103,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       "doesn't call onReset when round stays the same",
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = GameState.initial();

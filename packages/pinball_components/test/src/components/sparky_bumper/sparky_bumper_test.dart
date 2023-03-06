@@ -26,25 +26,29 @@ void main() {
   final flameTester = FlameTester(() => TestGame(assets));
 
   group('SparkyBumper', () {
-    flameTester.test('"a" loads correctly', (game) async {
+    testWithGame<TestGame>('"a" loads correctly',
+        flameTester.createGame, (game) async {
       final sparkyBumper = SparkyBumper.a();
       await game.ensureAdd(sparkyBumper);
       expect(game.contains(sparkyBumper), isTrue);
     });
 
-    flameTester.test('"b" loads correctly', (game) async {
+    testWithGame<TestGame>('"b" loads correctly',
+        flameTester.createGame, (game) async {
       final sparkyBumper = SparkyBumper.b();
       await game.ensureAdd(sparkyBumper);
       expect(game.contains(sparkyBumper), isTrue);
     });
 
-    flameTester.test('"c" loads correctly', (game) async {
+    testWithGame<TestGame>('"c" loads correctly',
+        flameTester.createGame, (game) async {
       final sparkyBumper = SparkyBumper.c();
       await game.ensureAdd(sparkyBumper);
       expect(game.contains(sparkyBumper), isTrue);
     });
 
-    flameTester.test('closes bloc when removed', (game) async {
+    testWithGame<TestGame>('closes bloc when removed',
+        flameTester.createGame, (game) async {
       final bloc = _MockSparkyBumperCubit();
       whenListen(
         bloc,
@@ -62,7 +66,8 @@ void main() {
     });
 
     group('adds', () {
-      flameTester.test('a SparkyBumperBallContactBehavior', (game) async {
+      testWithGame<TestGame>('a SparkyBumperBallContactBehavior',
+          flameTester.createGame, (game) async {
         final sparkyBumper = SparkyBumper.a();
         await game.ensureAdd(sparkyBumper);
         expect(
@@ -73,7 +78,8 @@ void main() {
         );
       });
 
-      flameTester.test('a SparkyBumperBlinkingBehavior', (game) async {
+      testWithGame<TestGame>('a SparkyBumperBlinkingBehavior',
+          flameTester.createGame, (game) async {
         final sparkyBumper = SparkyBumper.a();
         await game.ensureAdd(sparkyBumper);
         expect(
@@ -86,7 +92,8 @@ void main() {
     });
 
     group("'a' adds", () {
-      flameTester.test('new children', (game) async {
+      testWithGame<TestGame>('new children',
+          flameTester.createGame, (game) async {
         final component = Component();
         final sparkyBumper = SparkyBumper.a(
           children: [component],
@@ -95,7 +102,8 @@ void main() {
         expect(sparkyBumper.children, contains(component));
       });
 
-      flameTester.test('a BumpingBehavior', (game) async {
+      testWithGame<TestGame>('a BumpingBehavior',
+          flameTester.createGame, (game) async {
         final sparkyBumper = SparkyBumper.a();
         await game.ensureAdd(sparkyBumper);
         expect(
@@ -106,7 +114,8 @@ void main() {
     });
 
     group("'b' adds", () {
-      flameTester.test('new children', (game) async {
+      testWithGame<TestGame>('new children',
+          flameTester.createGame, (game) async {
         final component = Component();
         final sparkyBumper = SparkyBumper.b(
           children: [component],
@@ -115,7 +124,8 @@ void main() {
         expect(sparkyBumper.children, contains(component));
       });
 
-      flameTester.test('a BumpingBehavior', (game) async {
+      testWithGame<TestGame>('a BumpingBehavior',
+          flameTester.createGame, (game) async {
         final sparkyBumper = SparkyBumper.b();
         await game.ensureAdd(sparkyBumper);
         expect(
@@ -125,7 +135,8 @@ void main() {
       });
 
       group("'c' adds", () {
-        flameTester.test('new children', (game) async {
+        testWithGame<TestGame>('new children',
+            flameTester.createGame, (game) async {
           final component = Component();
           final sparkyBumper = SparkyBumper.c(
             children: [component],
@@ -134,7 +145,8 @@ void main() {
           expect(sparkyBumper.children, contains(component));
         });
 
-        flameTester.test('a BumpingBehavior', (game) async {
+        testWithGame<TestGame>('a BumpingBehavior',
+            flameTester.createGame, (game) async {
           final sparkyBumper = SparkyBumper.c();
           await game.ensureAdd(sparkyBumper);
           expect(

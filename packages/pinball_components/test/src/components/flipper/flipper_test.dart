@@ -41,8 +41,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final leftFlipper = Flipper(side: BoardSide.left);
         final rightFlipper = Flipper(side: BoardSide.right);
@@ -65,8 +66,9 @@ void main() {
     });
 
     group('body', () {
-      flameTester.test(
+      testWithGame<TestGame>(
         'is dynamic',
+        flameTester.createGame,
         (game) async {
           final flipper = Flipper(side: BoardSide.left);
           await game.ensureAdd(flipper);
@@ -74,8 +76,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'ignores gravity',
+        flameTester.createGame,
         (game) async {
           final flipper = Flipper(side: BoardSide.left);
           await game.ensureAdd(flipper);
@@ -84,8 +87,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'has greater mass than Ball',
+        flameTester.createGame,
         (game) async {
           final flipper = Flipper(side: BoardSide.left);
           final ball = Ball();
@@ -102,8 +106,9 @@ void main() {
     });
 
     group('fixtures', () {
-      flameTester.test(
+      testWithGame<TestGame>(
         'has three',
+        flameTester.createGame,
         (game) async {
           final flipper = Flipper(side: BoardSide.left);
           await game.ensureAdd(flipper);
@@ -112,8 +117,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'has density',
+        flameTester.createGame,
         (game) async {
           final flipper = Flipper(side: BoardSide.left);
           await game.ensureAdd(flipper);

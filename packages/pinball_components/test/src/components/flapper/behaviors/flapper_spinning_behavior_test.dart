@@ -32,8 +32,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'beginContact plays the flapper animation',
+        flameTester.createGame,
         (game) async {
           final behavior = FlapperSpinningBehavior();
           final entrance = FlapperEntrance();

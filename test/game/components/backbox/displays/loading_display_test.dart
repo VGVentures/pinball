@@ -36,7 +36,8 @@ void main() {
   group('LoadingDisplay', () {
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test('renders correctly', (game) async {
+    testWithGame<_TestGame>('renders correctly',
+        flameTester.createGame, (game) async {
       await game.pump(LoadingDisplay());
 
       final component = game.descendants().whereType<TextComponent>().first;
@@ -44,7 +45,8 @@ void main() {
       expect(component.text, equals('Loading'));
     });
 
-    flameTester.test('use ellipses as animation', (game) async {
+    testWithGame<_TestGame>('use ellipses as animation',
+        flameTester.createGame, (game) async {
       await game.pump(LoadingDisplay());
 
       final component = game.descendants().whereType<TextComponent>().first;

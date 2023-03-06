@@ -52,8 +52,9 @@ void main() {
       );
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'plays the flipper sound when moving up',
+      flameTester.createGame,
       (game) async {
         final audioPlayer = _MockPinballAudioPlayer();
         final bloc = _MockFlipperCubit();

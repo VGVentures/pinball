@@ -12,7 +12,7 @@ void main() {
         act: (bloc) => bloc.onAnimate(),
         expect: () => [
           isA<MultiballState>()
-            ..having(
+            .having(
               (state) => state.animationState,
               'animationState',
               MultiballAnimationState.blinking,
@@ -26,7 +26,7 @@ void main() {
         act: (bloc) => bloc.onStop(),
         expect: () => [
           isA<MultiballState>()
-            ..having(
+            .having(
               (state) => state.animationState,
               'animationState',
               MultiballAnimationState.idle,
@@ -43,19 +43,19 @@ void main() {
           ..onBlink(),
         expect: () => [
           isA<MultiballState>()
-            ..having(
+            .having(
               (state) => state.lightState,
               'lightState',
               MultiballLightState.lit,
             ),
           isA<MultiballState>()
-            ..having(
+            .having(
               (state) => state.lightState,
               'lightState',
               MultiballLightState.dimmed,
             ),
           isA<MultiballState>()
-            ..having(
+            .having(
               (state) => state.lightState,
               'lightState',
               MultiballLightState.lit,

@@ -64,7 +64,7 @@ void main() {
     parent = _TestBodyComponent();
   });
 
-  final flameBlocTester = FlameTester(_TestGame.new);
+  final flameTester = FlameTester(_TestGame.new);
 
   group('ScoringBehavior', () {
     test('can be instantiated', () {
@@ -77,8 +77,9 @@ void main() {
       );
     });
 
-    flameBlocTester.test(
+    testWithGame<_TestGame>(
       'can be loaded',
+      flameTester.createGame,
       (game) async {
         await game.pump(parent);
 
@@ -95,8 +96,9 @@ void main() {
       },
     );
 
-    flameBlocTester.test(
+    testWithGame<_TestGame>(
       'emits Scored event with points when added',
+      flameTester.createGame,
       (game) async {
         await game.pump(parent, gameBloc: bloc);
 
@@ -115,8 +117,9 @@ void main() {
       },
     );
 
-    flameBlocTester.test(
+    testWithGame<_TestGame>(
       'correctly renders text',
+      flameTester.createGame,
       (game) async {
         await game.pump(parent);
 
@@ -141,7 +144,7 @@ void main() {
       },
     );
 
-    flameBlocTester.testGameWidget(
+    flameTester.testGameWidget(
       'is removed after duration',
       setUp: (game, tester) async {
         await game.onLoad();
@@ -169,7 +172,7 @@ void main() {
   });
 
   group('ScoringContactBehavior', () {
-    flameBlocTester.testGameWidget(
+    flameTester.testGameWidget(
       'beginContact adds a ScoringBehavior',
       setUp: (game, tester) async {
         await game.onLoad();
@@ -188,7 +191,7 @@ void main() {
       },
     );
 
-    flameBlocTester.testGameWidget(
+    flameTester.testGameWidget(
       "beginContact positions text at contact's position",
       setUp: (game, tester) async {
         await game.onLoad();

@@ -32,8 +32,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'beginContact calls onBallContacted when in contact with a ball',
+        flameTester.createGame,
         (game) async {
           final behavior = AndroidAnimatronicBallContactBehavior();
           final bloc = _MockAndroidSpaceshipCubit();

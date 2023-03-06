@@ -120,9 +120,9 @@ class _CharacterPreview extends StatelessWidget {
 
 class _Character extends StatelessWidget {
   const _Character({
-    Key? key,
     required this.character,
     required this.isSelected,
+    Key? key,
   }) : super(key: key);
 
   final CharacterTheme character;

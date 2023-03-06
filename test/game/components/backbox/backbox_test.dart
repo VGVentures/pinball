@@ -197,8 +197,9 @@ void main() {
   });
 
   group('Backbox', () {
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final backbox = Backbox.test(
           bloc: bloc,
@@ -236,8 +237,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'requestInitials adds InitialsInputDisplay',
+      flameTester.createGame,
       (game) async {
         final backbox = Backbox.test(
           bloc: BackboxBloc(
@@ -263,8 +265,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds PlayerInitialsSubmitted when initials are submitted',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockBackboxBloc();
         final state = InitialsFormState(
@@ -298,8 +301,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds GameOverInfoDisplay when InitialsSuccessState',
+      flameTester.createGame,
       (game) async {
         final state = InitialsSuccessState(score: 100);
         whenListen(
@@ -323,9 +327,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds the mobile controls overlay '
       'when platform is mobile at InitialsFormState',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockBackboxBloc();
         final platformHelper = _MockPlatformHelper();
@@ -355,9 +360,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'remove the mobile controls overlay '
       'when InitialsSuccessState',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockBackboxBloc();
         final platformHelper = _MockPlatformHelper();
@@ -384,8 +390,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds InitialsSubmissionSuccessDisplay on InitialsSuccessState',
+      flameTester.createGame,
       (game) async {
         final state = InitialsSuccessState(score: 100);
         whenListen(
@@ -409,8 +416,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds ShareScoreRequested event when sharing',
+      flameTester.createGame,
       (game) async {
         final state = InitialsSuccessState(score: 100);
         whenListen(
@@ -439,8 +447,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds InitialsSubmissionFailureDisplay on InitialsFailureState',
+      flameTester.createGame,
       (game) async {
         whenListen(
           bloc,
@@ -475,8 +484,9 @@ void main() {
         UrlLauncherPlatform.instance = urlLauncher;
       });
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'adds ShareDisplay on ShareState',
+        flameTester.createGame,
         (game) async {
           final state = ShareState(score: 100);
           whenListen(
@@ -500,8 +510,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'opens Facebook link when sharing with Facebook',
+        flameTester.createGame,
         (game) async {
           when(() => urlLauncher.canLaunch(any()))
               .thenAnswer((_) async => true);
@@ -557,8 +568,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'opens Twitter link when sharing with Twitter',
+        flameTester.createGame,
         (game) async {
           final state = ShareState(score: 100);
           whenListen(
@@ -614,8 +626,9 @@ void main() {
       );
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds LeaderboardDisplay on LeaderboardSuccessState',
+      flameTester.createGame,
       (game) async {
         whenListen(
           bloc,
@@ -639,8 +652,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds LeaderboardFailureDisplay on LeaderboardFailureState',
+      flameTester.createGame,
       (game) async {
         whenListen(
           bloc,
@@ -664,8 +678,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'closes the subscription when it is removed',
+      flameTester.createGame,
       (game) async {
         final streamController = StreamController<BackboxState>();
         whenListen(
@@ -704,8 +719,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds PlayerInitialsSubmitted when the timer is finished',
+      flameTester.createGame,
       (game) async {
         final initialState = InitialsFailureState(
           score: 10,

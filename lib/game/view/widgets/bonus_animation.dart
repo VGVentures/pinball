@@ -72,7 +72,7 @@ class BonusAnimation extends StatefulWidget {
   final VoidCallback? _onCompleted;
 
   /// Returns a list of assets to be loaded for animations.
-  static List<Future Function()> loadAssets() {
+  static List<Future<dynamic> Function()> loadAssets() {
     Flame.images.prefix = '';
     return [
       () => Flame.images.load(Assets.images.bonusAnimation.dashNest.keyName),
@@ -147,9 +147,7 @@ class _BonusAnimationState extends State<BonusAnimation>
       vsync: this,
     )..forward();
 
-    return SizedBox(
-      width: double.infinity,
-      height: double.infinity,
+    return SizedBox.expand(
       child: SpriteAnimationWidget(
         controller: controller,
       ),

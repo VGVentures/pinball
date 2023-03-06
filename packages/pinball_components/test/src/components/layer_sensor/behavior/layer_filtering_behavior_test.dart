@@ -45,8 +45,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'loads',
+        flameTester.createGame,
         (game) async {
           final behavior = LayerFilteringBehavior();
           final parent = _TestLayerSensor(
@@ -78,9 +79,10 @@ void main() {
           when(() => ball.layer).thenReturn(Layer.board);
         });
 
-        flameTester.test(
+        testWithGame<TestGame>(
             'changes ball layer and zIndex '
             'when a ball enters and exits a downward oriented LayerSensor',
+            flameTester.createGame,
             (game) async {
           final parent = _TestLayerSensor(
             orientation: LayerEntranceOrientation.down,
@@ -105,9 +107,10 @@ void main() {
           verify(() => ball.zIndex = ZIndexes.ballOnBoard).called(1);
         });
 
-        flameTester.test(
+        testWithGame<TestGame>(
             'changes ball layer and zIndex '
             'when a ball enters and exits an upward oriented LayerSensor',
+            flameTester.createGame,
             (game) async {
           final parent = _TestLayerSensor(
             orientation: LayerEntranceOrientation.up,

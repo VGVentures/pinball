@@ -33,8 +33,9 @@ void main() {
       );
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'can be added',
+      flameTester.createGame,
       (game) async {
         final behavior = AnimatronicLoopingBehavior(animationCoolDown: 1);
         final animation = _MockSpriteAnimation();
@@ -49,8 +50,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'onTick starts playing the animation',
+      flameTester.createGame,
       (game) async {
         final behavior = AnimatronicLoopingBehavior(animationCoolDown: 1);
         final spriteAnimationComponent = _TestSpriteAnimationComponent();
@@ -64,8 +66,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'animation onComplete resets and stops playing the animation',
+      flameTester.createGame,
       (game) async {
         final behavior = AnimatronicLoopingBehavior(animationCoolDown: 1);
         final spriteAnimationComponent = DashAnimatronic();
@@ -83,8 +86,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'animation onComplete resets and starts the timer',
+      flameTester.createGame,
       (game) async {
         final behavior = AnimatronicLoopingBehavior(animationCoolDown: 1);
         final spriteAnimationComponent = DashAnimatronic();

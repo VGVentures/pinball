@@ -30,8 +30,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final ball = Ball();
         await game.ready();
@@ -41,8 +42,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'has only one SpriteComponent',
+      flameTester.createGame,
       (game) async {
         final ball = Ball();
         await game.ready();
@@ -55,8 +57,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'BallSpriteComponent changes sprite onNewState',
+      flameTester.createGame,
       (game) async {
         final ball = Ball();
         await game.ready();
@@ -77,7 +80,9 @@ void main() {
     );
 
     group('adds', () {
-      flameTester.test('a BallScalingBehavior', (game) async {
+      testWithGame<TestGame>('a BallScalingBehavior',
+          flameTester.createGame,
+          (game) async {
         final ball = Ball();
         await game.ensureAdd(ball);
         expect(
@@ -86,7 +91,9 @@ void main() {
         );
       });
 
-      flameTester.test('a BallGravitatingBehavior', (game) async {
+      testWithGame<TestGame>('a BallGravitatingBehavior',
+          flameTester.createGame,
+              (game) async {
         final ball = Ball();
         await game.ensureAdd(ball);
         expect(
@@ -97,8 +104,9 @@ void main() {
     });
 
     group('body', () {
-      flameTester.test(
+      testWithGame<TestGame>(
         'is dynamic',
+        flameTester.createGame,
         (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
@@ -108,7 +116,8 @@ void main() {
       );
 
       group('can be moved', () {
-        flameTester.test('by its weight', (game) async {
+        testWithGame<TestGame>('by its weight',
+            flameTester.createGame, (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
 
@@ -116,7 +125,9 @@ void main() {
           expect(ball.body.position, isNot(equals(ball.initialPosition)));
         });
 
-        flameTester.test('by applying velocity', (game) async {
+        testWithGame<TestGame>('by applying velocity',
+            flameTester.createGame,
+                (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
 
@@ -129,8 +140,9 @@ void main() {
     });
 
     group('fixture', () {
-      flameTester.test(
+      testWithGame<TestGame>(
         'exists',
+        flameTester.createGame,
         (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
@@ -139,8 +151,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'is dense',
+        flameTester.createGame,
         (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
@@ -150,8 +163,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'shape is circular',
+        flameTester.createGame,
         (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
@@ -162,8 +176,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'has Layer.all as default filter maskBits',
+        flameTester.createGame,
         (game) async {
           final ball = Ball();
           await game.ready();
@@ -178,7 +193,9 @@ void main() {
 
     group('stop', () {
       group("can't be moved", () {
-        flameTester.test('by its weight', (game) async {
+        testWithGame<TestGame>('by its weight',
+            flameTester.createGame,
+                (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
           ball.stop();
@@ -191,8 +208,9 @@ void main() {
 
     group('resume', () {
       group('can move', () {
-        flameTester.test(
+        testWithGame<TestGame>(
           'by its weight when previously stopped',
+          flameTester.createGame,
           (game) async {
             final ball = Ball();
             await game.ensureAdd(ball);
@@ -204,9 +222,10 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<TestGame>(
           'by applying velocity when previously stopped',
-          (game) async {
+          flameTester.createGame,
+              (game) async {
             final ball = Ball();
             await game.ensureAdd(ball);
             ball.stop();

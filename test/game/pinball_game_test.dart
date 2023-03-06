@@ -115,8 +115,9 @@ void main() {
     final flameTester = FlameTester(_TestPinballGame.new);
 
     group('components', () {
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'has only one BallSpawningBehavior',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           expect(
@@ -126,8 +127,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'has only one CharacterSelectionBehavior',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           expect(
@@ -137,8 +139,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'has only one Drain',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           expect(
@@ -148,8 +151,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'has only one BottomGroup',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           expect(
@@ -159,8 +163,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'has only one Launcher',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           expect(
@@ -170,8 +175,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'has one FlutterForest',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           expect(
@@ -181,8 +187,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'has only one Multiballs',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           expect(
@@ -192,8 +199,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'one GoogleGallery',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           expect(
@@ -203,7 +211,8 @@ void main() {
         },
       );
 
-      flameTester.test('one SkillShot', (game) async {
+      testWithGame<_TestPinballGame>('one SkillShot',
+          flameTester.createGame, (game) async {
         await game.ready();
         expect(
           game.descendants().whereType<SkillShot>().length,
@@ -246,7 +255,9 @@ void main() {
     });
 
     group('flipper control', () {
-      flameTester.test('tap control only works if game is playing',
+      testWithGame<_TestPinballGame>(
+          'tap control only works if game is playing',
+          flameTester.createGame,
           (game) async {
         await game.ready();
 
@@ -290,7 +301,8 @@ void main() {
         expect(flipperBloc.state, FlipperState.movingUp);
       });
 
-      flameTester.test('tap down moves left flipper up', (game) async {
+      testWithGame<_TestPinballGame>('tap down moves left flipper up',
+          flameTester.createGame, (game) async {
         await game.ready();
 
         final gameBloc = game
@@ -327,7 +339,8 @@ void main() {
         expect(flipperBloc.state, FlipperState.movingUp);
       });
 
-      flameTester.test('tap down moves right flipper up', (game) async {
+      testWithGame<_TestPinballGame>('tap down moves right flipper up',
+          flameTester.createGame, (game) async {
         await game.ready();
 
         final gameBloc = game
@@ -364,7 +377,8 @@ void main() {
         expect(flipperBloc.state, FlipperState.movingUp);
       });
 
-      flameTester.test('tap up moves flipper down', (game) async {
+      testWithGame<_TestPinballGame>('tap up moves flipper down',
+          flameTester.createGame, (game) async {
         await game.ready();
 
         final gameBloc = game
@@ -397,7 +411,8 @@ void main() {
         expect(flipperBloc.state, FlipperState.movingDown);
       });
 
-      flameTester.test('tap cancel moves flipper down', (game) async {
+      testWithGame<_TestPinballGame>('tap cancel moves flipper down',
+          flameTester.createGame, (game) async {
         await game.ready();
 
         final gameBloc = game
@@ -434,8 +449,9 @@ void main() {
         expect(flipperBloc.state, FlipperState.movingDown);
       });
 
-      flameTester.test(
+      testWithGame<_TestPinballGame>(
         'multiple touches control both flippers',
+        flameTester.createGame,
         (game) async {
           await game.ready();
 
@@ -497,7 +513,8 @@ void main() {
     });
 
     group('plunger control', () {
-      flameTester.test('plunger control tap down emits plunging', (game) async {
+      testWithGame<_TestPinballGame>('plunger control tap down emits plunging',
+          flameTester.createGame, (game) async {
         await game.ready();
 
         final gameBloc = game
@@ -534,8 +551,9 @@ void main() {
   group('DebugPinballGame', () {
     final flameTester = FlameTester(_TestDebugPinballGame.new);
 
-    flameTester.test(
+    testWithGame<_TestDebugPinballGame>(
       'adds a ball on tap up',
+      flameTester.createGame,
       (game) async {
         final eventPosition = _MockEventPosition();
         when(() => eventPosition.game).thenReturn(Vector2.all(10));
@@ -562,8 +580,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestDebugPinballGame>(
       'set lineStart on pan start',
+      flameTester.createGame,
       (game) async {
         final startPosition = Vector2.all(10);
         final eventPosition = _MockEventPosition();
@@ -582,8 +601,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestDebugPinballGame>(
       'set lineEnd on pan update',
+      flameTester.createGame,
       (game) async {
         final endPosition = Vector2.all(10);
         final eventPosition = _MockEventPosition();
@@ -602,8 +622,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestDebugPinballGame>(
       'launch ball on pan end',
+      flameTester.createGame,
       (game) async {
         final startPosition = Vector2.zero();
         final endPosition = Vector2.all(10);

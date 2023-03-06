@@ -10,8 +10,9 @@ void main() {
   final flameTester = FlameTester(Forge2DGame.new);
 
   group('JointAnchor', () {
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final anchor = JointAnchor();
         await game.ready();
@@ -22,8 +23,9 @@ void main() {
     );
 
     group('body', () {
-      flameTester.test(
+      testWithGame<Forge2DGame>(
         'is static',
+        flameTester.createGame,
         (game) async {
           await game.ready();
           final anchor = JointAnchor();
@@ -35,8 +37,9 @@ void main() {
     });
 
     group('fixtures', () {
-      flameTester.test(
+      testWithGame<Forge2DGame>(
         'has none',
+        flameTester.createGame,
         (game) async {
           final anchor = JointAnchor();
           await game.ensureAdd(anchor);

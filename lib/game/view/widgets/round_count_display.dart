@@ -20,7 +20,7 @@ class RoundCountDisplay extends StatelessWidget {
       children: [
         Text(
           l10n.rounds,
-          style: Theme.of(context).textTheme.subtitle1,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(width: 8),
         Row(
@@ -42,8 +42,8 @@ class RoundCountDisplay extends StatelessWidget {
 class RoundIndicator extends StatelessWidget {
   /// {@macro round_indicator}
   const RoundIndicator({
-    Key? key,
     required this.isActive,
+    Key? key,
   }) : super(key: key);
 
   /// A value that describes whether the indicator is active.

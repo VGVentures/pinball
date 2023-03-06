@@ -87,8 +87,9 @@ void main() {
   });
 
   group('InfoDisplay', () {
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final component = GameOverInfoDisplay();
         await game.pump(component);
@@ -96,8 +97,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'calls onShare when Share link is tapped',
+      flameTester.createGame,
       (game) async {
         var tapped = false;
 
@@ -116,8 +118,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'open Google IO Event url when navigating',
+      flameTester.createGame,
       (game) async {
         when(() => urlLauncher.canLaunch(any())).thenAnswer((_) async => true);
         when(
@@ -155,8 +158,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'open OpenSource url when navigating',
+      flameTester.createGame,
       (game) async {
         when(() => urlLauncher.canLaunch(any())).thenAnswer((_) async => true);
         when(

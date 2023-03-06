@@ -27,9 +27,10 @@ void main() {
       expect(component.initialPosition, Vector2(1, 2));
     });
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'throws AssertionError '
       'when BodyDef is not positioned with initialPosition',
+      flameTester.createGame,
       (game) async {
         final component = TestBodyComponent()
           ..initialPosition = Vector2.all(
@@ -42,8 +43,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'positions correctly',
+      flameTester.createGame,
       (game) async {
         final position = Vector2.all(10);
         final component = TestPositionedBodyComponent()
@@ -53,9 +55,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'defaults to zero '
       'when no initialPosition is given',
+      flameTester.createGame,
       (game) async {
         final component = TestBodyComponent();
         await game.ensureAdd(component);
@@ -63,9 +66,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'setting throws AssertionError '
       'when component has loaded',
+      flameTester.createGame,
       (game) async {
         final component = TestBodyComponent();
         await game.ensureAdd(component);

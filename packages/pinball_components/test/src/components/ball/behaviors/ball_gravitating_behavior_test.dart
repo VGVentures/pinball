@@ -21,7 +21,9 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<TestGame>('can be loaded',
+        flameTester.createGame,
+            (game) async {
       final ball = Ball.test();
       final behavior = BallGravitatingBehavior();
       await ball.add(behavior);
@@ -32,8 +34,9 @@ void main() {
       );
     });
 
-    flameTester.test(
+    testWithGame<TestGame>(
       "overrides the body's horizontal gravity symmetrically",
+      flameTester.createGame,
       (game) async {
         final ball1 = Ball.test()..initialPosition = Vector2(10, 0);
         await ball1.add(BallGravitatingBehavior());

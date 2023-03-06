@@ -52,15 +52,17 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('GoogleGallery', () {
-    flameTester.test('loads correctly', (game) async {
+    testWithGame<_TestGame>('loads correctly',
+        flameTester.createGame, (game) async {
       final component = GoogleGallery();
       await game.pump(component);
       expect(game.descendants(), contains(component));
     });
 
     group('loads', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'two GoogleRollovers',
+        flameTester.createGame,
         (game) async {
           await game.pump(GoogleGallery());
           expect(
@@ -70,8 +72,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a GoogleWord',
+        flameTester.createGame,
         (game) async {
           await game.pump(GoogleGallery());
           expect(
@@ -83,8 +86,9 @@ void main() {
     });
 
     group('adds', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'ScoringContactBehavior to GoogleRollovers',
+        flameTester.createGame,
         (game) async {
           await game.pump(GoogleGallery());
 
@@ -97,8 +101,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'RolloverNoiseBehavior to GoogleRollovers',
+        flameTester.createGame,
         (game) async {
           await game.pump(GoogleGallery());
 
@@ -111,7 +116,8 @@ void main() {
         },
       );
 
-      flameTester.test('a GoogleWordBonusBehavior', (game) async {
+      testWithGame<_TestGame>('a GoogleWordBonusBehavior',
+          flameTester.createGame, (game) async {
         final component = GoogleGallery();
         await game.pump(component);
         expect(

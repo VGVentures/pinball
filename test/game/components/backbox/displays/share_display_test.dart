@@ -60,8 +60,9 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('ShareDisplay', () {
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final component = ShareDisplay();
         await game.pump(component);
@@ -69,8 +70,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'calls onShare when Facebook button is tapped',
+      flameTester.createGame,
       (game) async {
         var tapped = false;
 
@@ -89,8 +91,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'calls onShare when Twitter button is tapped',
+      flameTester.createGame,
       (game) async {
         var tapped = false;
 

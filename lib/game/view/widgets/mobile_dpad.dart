@@ -7,11 +7,11 @@ import 'package:pinball_ui/pinball_ui.dart';
 class MobileDpad extends StatelessWidget {
   /// {@template mobile_dpad}
   const MobileDpad({
-    Key? key,
     required this.onTapUp,
     required this.onTapDown,
     required this.onTapLeft,
     required this.onTapRight,
+    Key? key,
   }) : super(key: key);
 
   static const _size = 180.0;

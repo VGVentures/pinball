@@ -46,8 +46,9 @@ void main() {
       expect(GoogleLetter(0), isA<GoogleLetter>());
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       '0th loads correctly',
+      flameTester.createGame,
       (game) async {
         final googleLetter = GoogleLetter(0);
         await game.pump(googleLetter);
@@ -56,8 +57,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       '1st loads correctly',
+      flameTester.createGame,
       (game) async {
         final googleLetter = GoogleLetter(1);
         await game.pump(googleLetter);
@@ -66,8 +68,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       '2nd loads correctly',
+      flameTester.createGame,
       (game) async {
         final googleLetter = GoogleLetter(2);
         await game.pump(googleLetter);
@@ -76,8 +79,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       '3d loads correctly',
+      flameTester.createGame,
       (game) async {
         final googleLetter = GoogleLetter(3);
         await game.pump(googleLetter);
@@ -86,8 +90,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       '4th loads correctly',
+      flameTester.createGame,
       (game) async {
         final googleLetter = GoogleLetter(4);
         await game.pump(googleLetter);
@@ -96,8 +101,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       '5th loads correctly',
+      flameTester.createGame,
       (game) async {
         final googleLetter = GoogleLetter(5);
         await game.pump(googleLetter);
@@ -123,8 +129,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         "listens when its index's state changes",
+        flameTester.createGame,
         (game) async {
           final googleLetter = GoogleLetter(0);
           await game.pump(googleLetter);
@@ -139,8 +146,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'changes current sprite onNewState',
+        flameTester.createGame,
         (game) async {
           final googleLetter = GoogleLetter(0);
           await game.pump(googleLetter);

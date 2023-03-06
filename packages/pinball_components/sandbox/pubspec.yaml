@@ -8,8 +8,8 @@ environment:
 
 dependencies:
   dashbook: ^0.1.7
-  flame: ^1.1.1
-  flame_bloc: ^1.4.0
+  flame: ^1.6.0
+  flame_bloc: ^1.8.2
   flame_forge2d:
     git: 
       url: https://github.com/flame-engine/flame
@@ -27,7 +27,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  very_good_analysis: ^2.4.0
+  very_good_analysis: ^4.0.0+1
 
 flutter:
   uses-material-design: true

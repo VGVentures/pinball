@@ -33,8 +33,9 @@ void main() {
       });
 
       group('on the next time the mouth opens and status is chomping', () {
-        flameTester.test(
+        testWithGame<TestGame>(
           'sets ball sprite to visible and sets a linear velocity',
+          flameTester.createGame,
           (game) async {
             final ball = Ball();
             final behavior = ChromeDinoSpittingBehavior();
@@ -78,8 +79,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<TestGame>(
           'calls onSpit',
+          flameTester.createGame,
           (game) async {
             final ball = Ball();
             final behavior = ChromeDinoSpittingBehavior();

@@ -28,7 +28,8 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<TestGame>('can be loaded',
+        flameTester.createGame, (game) async {
       final parent = ScoreComponent.test(
         points: Points.fiveThousand,
         position: Vector2.zero(),
@@ -41,8 +42,9 @@ void main() {
       expect(parent.children, contains(behavior));
     });
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'scales the sprite',
+      flameTester.createGame,
       (game) async {
         final parent1 = ScoreComponent.test(
           points: Points.fiveThousand,

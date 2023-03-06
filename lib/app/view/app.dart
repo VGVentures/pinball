@@ -14,12 +14,12 @@ import 'package:share_repository/share_repository.dart';
 
 class App extends StatelessWidget {
   const App({
-    Key? key,
     required AuthenticationRepository authenticationRepository,
     required LeaderboardRepository leaderboardRepository,
     required ShareRepository shareRepository,
     required PinballAudioPlayer pinballAudioPlayer,
     required PlatformHelper platformHelper,
+    Key? key,
   })  : _authenticationRepository = authenticationRepository,
         _leaderboardRepository = leaderboardRepository,
         _shareRepository = shareRepository,

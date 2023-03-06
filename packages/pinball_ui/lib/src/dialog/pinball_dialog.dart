@@ -7,9 +7,9 @@ import 'package:pinball_ui/pinball_ui.dart';
 class PinballDialog extends StatelessWidget {
   /// {@macro pinball_dialog}
   const PinballDialog({
-    Key? key,
     required this.title,
     required this.child,
+    Key? key,
     this.subtitle,
   }) : super(key: key);
 
@@ -41,14 +41,14 @@ class PinballDialog extends StatelessWidget {
 }
 
 class _Title extends StatelessWidget {
-  const _Title({Key? key, required this.title}) : super(key: key);
+  const _Title({required this.title, Key? key}) : super(key: key);
 
   final String title;
 
   @override
   Widget build(BuildContext context) => Text(
         title,
-        style: Theme.of(context).textTheme.headline3!.copyWith(
+        style: Theme.of(context).textTheme.displaySmall!.copyWith(
               fontWeight: FontWeight.bold,
               color: PinballColors.darkBlue,
             ),
@@ -59,9 +59,9 @@ class _Title extends StatelessWidget {
 
 class _TitleAndSubtitle extends StatelessWidget {
   const _TitleAndSubtitle({
-    Key? key,
     required this.title,
     required this.subtitle,
+    Key? key,
   }) : super(key: key);
 
   final String title;
@@ -79,7 +79,8 @@ class _TitleAndSubtitle extends StatelessWidget {
           subtitle,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
-          style: textTheme.headline3!.copyWith(fontWeight: FontWeight.normal),
+          style: textTheme.displaySmall!
+              .copyWith(fontWeight: FontWeight.normal),
         ),
       ],
     );

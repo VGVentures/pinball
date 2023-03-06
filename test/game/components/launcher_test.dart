@@ -38,8 +38,9 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('Launcher', () {
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final component = Launcher();
         await game.pump(component);
@@ -48,8 +49,9 @@ void main() {
     );
 
     group('loads', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a LaunchRamp',
+        flameTester.createGame,
         (game) async {
           final component = Launcher();
           await game.pump(component);
@@ -60,8 +62,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a Flapper',
+        flameTester.createGame,
         (game) async {
           final component = Launcher();
           await game.pump(component);
@@ -71,8 +74,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a Plunger',
+        flameTester.createGame,
         (game) async {
           final component = Launcher();
           await game.pump(component);
@@ -82,8 +86,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a RocketSpriteComponent',
+        flameTester.createGame,
         (game) async {
           final component = Launcher();
           await game.pump(component);

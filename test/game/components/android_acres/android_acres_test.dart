@@ -54,15 +54,17 @@ void main() {
   group('AndroidAcres', () {
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test('loads correctly', (game) async {
+    testWithGame<_TestGame>('loads correctly',
+        flameTester.createGame, (game) async {
       final component = AndroidAcres();
       await game.pump(component);
       expect(game.descendants(), contains(component));
     });
 
     group('loads', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'an AndroidSpaceship',
+        flameTester.createGame,
         (game) async {
           await game.pump(AndroidAcres());
           expect(
@@ -72,8 +74,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'an AndroidAnimatronic',
+        flameTester.createGame,
         (game) async {
           await game.pump(AndroidAcres());
           expect(
@@ -83,8 +86,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a SpaceshipRamp',
+        flameTester.createGame,
         (game) async {
           await game.pump(AndroidAcres());
           expect(
@@ -94,8 +98,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a SpaceshipRail',
+        flameTester.createGame,
         (game) async {
           await game.pump(AndroidAcres());
           expect(
@@ -105,8 +110,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'three AndroidBumper',
+        flameTester.createGame,
         (game) async {
           await game.pump(AndroidAcres());
           expect(
@@ -116,8 +122,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'three AndroidBumpers with BumperNoiseBehavior',
+        flameTester.createGame,
         (game) async {
           await game.pump(AndroidAcres());
           final bumpers = game.descendants().whereType<AndroidBumper>();
@@ -130,8 +137,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'one AndroidBumper with CowBumperNoiseBehavior',
+        flameTester.createGame,
         (game) async {
           await game.pump(AndroidAcres());
           final bumpers = game.descendants().whereType<AndroidBumper>();
@@ -146,7 +154,8 @@ void main() {
       );
     });
 
-    flameTester.test('adds a FlameBlocProvider', (game) async {
+    testWithGame<_TestGame>('adds a FlameBlocProvider',
+        flameTester.createGame, (game) async {
       final androidAcres = AndroidAcres();
       await game.pump(androidAcres);
       expect(
@@ -159,7 +168,8 @@ void main() {
       );
     });
 
-    flameTester.test('adds an AndroidSpaceshipBonusBehavior', (game) async {
+    testWithGame<_TestGame>('adds an AndroidSpaceshipBonusBehavior',
+        flameTester.createGame, (game) async {
       final androidAcres = AndroidAcres();
       await game.pump(androidAcres);
       final provider = androidAcres.children

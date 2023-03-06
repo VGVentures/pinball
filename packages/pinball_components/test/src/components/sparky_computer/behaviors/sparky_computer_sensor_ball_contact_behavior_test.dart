@@ -32,8 +32,9 @@ void main() {
       });
 
       group('beginContact', () {
-        flameTester.test(
+        testWithGame<TestGame>(
           'stops a ball',
+          flameTester.createGame,
           (game) async {
             final behavior = SparkyComputerSensorBallContactBehavior();
             final bloc = _MockSparkyComputerCubit();
@@ -56,8 +57,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<TestGame>(
           'emits onBallEntered when contacts with a ball',
+          flameTester.createGame,
           (game) async {
             final behavior = SparkyComputerSensorBallContactBehavior();
             final bloc = _MockSparkyComputerCubit();
@@ -79,8 +81,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<TestGame>(
           'adds TimerComponent when contacts with a ball',
+          flameTester.createGame,
           (game) async {
             final behavior = SparkyComputerSensorBallContactBehavior();
             final bloc = _MockSparkyComputerCubit();
@@ -106,8 +109,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<TestGame>(
           'TimerComponent resumes ball and calls onBallTurboCharged onTick',
+          flameTester.createGame,
           (game) async {
             final behavior = SparkyComputerSensorBallContactBehavior();
             final bloc = _MockSparkyComputerCubit();

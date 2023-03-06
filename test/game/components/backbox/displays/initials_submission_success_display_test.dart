@@ -10,7 +10,8 @@ void main() {
   group('InitialsSubmissionSuccessDisplay', () {
     final flameTester = FlameTester(Forge2DGame.new);
 
-    flameTester.test('renders correctly', (game) async {
+    testWithGame<Forge2DGame>('renders correctly',
+        flameTester.createGame, (game) async {
       await game.ensureAdd(InitialsSubmissionSuccessDisplay());
 
       final component = game.firstChild<TextComponent>();

@@ -76,9 +76,10 @@ void main() {
 
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'adds MultiplierIncreased '
       'when hits are multiples of 5 times and multiplier is less than 6',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();
@@ -111,9 +112,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       "doesn't add MultiplierIncreased "
       'when hits are multiples of 5 times but multiplier is 6',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();
@@ -145,9 +147,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       "doesn't add MultiplierIncreased "
       "when hits aren't multiples of 5 times",
+      flameTester.createGame,
       (game) async {
         final bloc = _MockSpaceshipRampCubit();
         final state = SpaceshipRampState.initial();

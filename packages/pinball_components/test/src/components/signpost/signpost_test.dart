@@ -61,8 +61,9 @@ void main() {
       expect(Signpost(), isA<Signpost>());
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'can be added',
+      flameTester.createGame,
       (game) async {
         final signpost = Signpost();
         await game.pump(signpost);
@@ -79,7 +80,7 @@ void main() {
           await tester.pump();
 
           expect(
-            signpost.firstChild<SpriteGroupComponent>()!.current,
+            signpost.firstChild<SpriteGroupComponent<dynamic>>()!.current,
             equals(SignpostState.inactive),
           );
 
@@ -103,7 +104,7 @@ void main() {
           await tester.pump();
 
           expect(
-            signpost.firstChild<SpriteGroupComponent>()!.current,
+            signpost.firstChild<SpriteGroupComponent<dynamic>>()!.current,
             equals(SignpostState.active1),
           );
 
@@ -129,7 +130,7 @@ void main() {
           await tester.pump();
 
           expect(
-            signpost.firstChild<SpriteGroupComponent>()!.current,
+            signpost.firstChild<SpriteGroupComponent<dynamic>>()!.current,
             equals(SignpostState.active2),
           );
 
@@ -156,7 +157,7 @@ void main() {
           await tester.pump();
 
           expect(
-            signpost.firstChild<SpriteGroupComponent>()!.current,
+            signpost.firstChild<SpriteGroupComponent<dynamic>>()!.current,
             equals(SignpostState.active3),
           );
 
@@ -201,8 +202,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'onNewState calls onProgressed and onReset',
+      flameTester.createGame,
       (game) async {
         final signpost = Signpost();
         final signpostBloc = _MockSignpostCubit();
@@ -234,7 +236,8 @@ void main() {
       },
     );
 
-    flameTester.test('adds new children', (game) async {
+    testWithGame<_TestGame>('adds new children',
+        flameTester.createGame, (game) async {
       final component = Component();
       final signpost = Signpost(
         children: [component],

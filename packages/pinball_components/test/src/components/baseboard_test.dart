@@ -39,8 +39,8 @@ void main() {
       },
     );
 
-    flameTester.test(
-      'loads correctly',
+    testWithGame<TestGame>(
+      'loads correctly', flameTester.createGame,
       (game) async {
         await game.ready();
         final leftBaseboard = Baseboard(
@@ -58,8 +58,8 @@ void main() {
     );
 
     group('body', () {
-      flameTester.test(
-        'is static',
+      testWithGame<TestGame>(
+        'is static', flameTester.createGame,
         (game) async {
           final baseboard = Baseboard(
             side: BoardSide.left,
@@ -71,8 +71,8 @@ void main() {
         },
       );
 
-      flameTester.test(
-        'is at an angle',
+      testWithGame<TestGame>(
+        'is at an angle', flameTester.createGame,
         (game) async {
           final leftBaseboard = Baseboard(
             side: BoardSide.left,
@@ -89,8 +89,8 @@ void main() {
     });
 
     group('fixtures', () {
-      flameTester.test(
-        'has seven',
+      testWithGame<TestGame>(
+        'has seven', flameTester.createGame,
         (game) async {
           final baseboard = Baseboard(
             side: BoardSide.left,

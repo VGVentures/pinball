@@ -30,8 +30,9 @@ void main() {
   group('BottomGroup', () {
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final bottomGroup = BottomGroup();
         await game.ensureAdd(
@@ -46,8 +47,9 @@ void main() {
     );
 
     group('loads', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'one left flipper',
+        flameTester.createGame,
         (game) async {
           final bottomGroup = BottomGroup();
           await game.ensureAdd(
@@ -65,8 +67,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'one right flipper',
+        flameTester.createGame,
         (game) async {
           final bottomGroup = BottomGroup();
           await game.ensureAdd(
@@ -84,8 +87,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'two Baseboards',
+        flameTester.createGame,
         (game) async {
           final bottomGroup = BottomGroup();
           await game.ensureAdd(
@@ -101,8 +105,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'two Kickers',
+        flameTester.createGame,
         (game) async {
           final bottomGroup = BottomGroup();
           await game.ensureAdd(

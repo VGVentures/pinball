@@ -15,8 +15,8 @@ import 'package:pinball_ui/pinball_ui.dart';
 class StartGameListener extends StatelessWidget {
   /// {@macro start_game_listener}
   const StartGameListener({
-    Key? key,
     required Widget child,
+    Key? key,
   })  : _child = child,
         super(key: key);
 

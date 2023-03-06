@@ -18,8 +18,9 @@ void main() {
       expect(Plunger(), isA<Plunger>());
     });
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final plunger = Plunger();
         await game.ensureAdd(plunger);
@@ -28,8 +29,9 @@ void main() {
     );
 
     group('adds', () {
-      flameTester.test(
+      testWithGame<TestGame>(
         'a PlungerReleasingBehavior',
+        flameTester.createGame,
         (game) async {
           final plunger = Plunger();
           await game.ensureAdd(plunger);
@@ -40,8 +42,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'a PlungerJointingBehavior',
+        flameTester.createGame,
         (game) async {
           final plunger = Plunger();
           await game.ensureAdd(plunger);
@@ -52,8 +55,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'a PlungerNoiseBehavior',
+        flameTester.createGame,
         (game) async {
           final plunger = Plunger();
           await game.ensureAdd(plunger);

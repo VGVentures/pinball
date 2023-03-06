@@ -3,7 +3,6 @@
 import 'package:flame_bloc/flame_bloc.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flame_test/flame_test.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -53,7 +52,8 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<_TestGame>('can be loaded',
+        flameTester.createGame, (game) async {
       final behavior = PlungerKeyControllingBehavior();
       await game.pump(behavior);
       expect(game.descendants(), contains(behavior));
@@ -67,8 +67,9 @@ void main() {
       });
 
       group('pulls when', () {
-        flameTester.test(
+        testWithGame<_TestGame>(
           'down arrow is pressed',
+          flameTester.createGame,
           (game) async {
             final behavior = PlungerKeyControllingBehavior();
             await game.pump(
@@ -87,8 +88,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           '"s" is pressed',
+          flameTester.createGame,
           (game) async {
             final behavior = PlungerKeyControllingBehavior();
             await game.pump(
@@ -107,8 +109,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'space is pressed',
+          flameTester.createGame,
           (game) async {
             final behavior = PlungerKeyControllingBehavior();
             await game.pump(
@@ -129,8 +132,9 @@ void main() {
       });
 
       group('releases when', () {
-        flameTester.test(
+        testWithGame<_TestGame>(
           'down arrow is released',
+          flameTester.createGame,
           (game) async {
             final behavior = PlungerKeyControllingBehavior();
             await game.pump(
@@ -149,8 +153,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           '"s" is released',
+          flameTester.createGame,
           (game) async {
             final behavior = PlungerKeyControllingBehavior();
             await game.pump(
@@ -169,8 +174,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'space is released',
+          flameTester.createGame,
           (game) async {
             final behavior = PlungerKeyControllingBehavior();
             await game.pump(

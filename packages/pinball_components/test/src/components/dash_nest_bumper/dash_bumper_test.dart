@@ -39,25 +39,29 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('DashBumper', () {
-    flameTester.test('"main" can be added', (game) async {
+    testWithGame<_TestGame>('"main" can be added',
+        flameTester.createGame, (game) async {
       final bumper = DashBumper.main();
       await game.pump(bumper);
       expect(game.descendants().contains(bumper), isTrue);
     });
 
-    flameTester.test('"a" can be added', (game) async {
+    testWithGame<_TestGame>('"a" can be added',
+        flameTester.createGame, (game) async {
       final bumper = DashBumper.a();
       await game.pump(bumper);
       expect(game.descendants().contains(bumper), isTrue);
     });
 
-    flameTester.test('"b" can be added', (game) async {
+    testWithGame<_TestGame>('"b" can be added',
+        flameTester.createGame, (game) async {
       final bumper = DashBumper.b();
       await game.pump(bumper);
       expect(game.descendants().contains(bumper), isTrue);
     });
 
-    flameTester.test('adds a DashBumperBallContactBehavior', (game) async {
+    testWithGame<_TestGame>('adds a DashBumperBallContactBehavior',
+        flameTester.createGame, (game) async {
       final bumper = DashBumper.a();
       await game.pump(bumper);
       expect(
@@ -67,7 +71,8 @@ void main() {
     });
 
     group("'main' adds", () {
-      flameTester.test('new children', (game) async {
+      testWithGame<_TestGame>('new children',
+          flameTester.createGame, (game) async {
         final component = Component();
         final bumper = DashBumper.main(
           children: [component],
@@ -76,7 +81,8 @@ void main() {
         expect(bumper.children, contains(component));
       });
 
-      flameTester.test('a BumpingBehavior', (game) async {
+      testWithGame<_TestGame>('a BumpingBehavior',
+          flameTester.createGame, (game) async {
         final bumper = DashBumper.main();
         await game.pump(bumper);
         expect(
@@ -87,7 +93,8 @@ void main() {
     });
 
     group("'a' adds", () {
-      flameTester.test('new children', (game) async {
+      testWithGame<_TestGame>('new children',
+          flameTester.createGame, (game) async {
         final component = Component();
         final bumper = DashBumper.a(
           children: [component],
@@ -96,7 +103,8 @@ void main() {
         expect(bumper.children, contains(component));
       });
 
-      flameTester.test('a BumpingBehavior', (game) async {
+      testWithGame<_TestGame>('a BumpingBehavior',
+          flameTester.createGame, (game) async {
         final bumper = DashBumper.a();
         await game.pump(bumper);
         expect(
@@ -107,7 +115,8 @@ void main() {
     });
 
     group("'b' adds", () {
-      flameTester.test('new children', (game) async {
+      testWithGame<_TestGame>('new children',
+          flameTester.createGame, (game) async {
         final component = Component();
         final bumper = DashBumper.b(
           children: [component],
@@ -116,7 +125,8 @@ void main() {
         expect(bumper.children, contains(component));
       });
 
-      flameTester.test('a BumpingBehavior', (game) async {
+      testWithGame<_TestGame>('a BumpingBehavior',
+          flameTester.createGame, (game) async {
         final bumper = DashBumper.b();
         await game.pump(bumper);
         expect(
@@ -136,8 +146,9 @@ void main() {
       );
 
       group('listenWhen', () {
-        flameTester.test(
+        testWithGame<_TestGame>(
           'is true when the sprite state for the given ID has changed',
+          flameTester.createGame,
           (game) async {
             final bumper = DashBumper.main();
             await game.pump(bumper);
@@ -152,8 +163,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           'onNewState updates the current sprite',
+          flameTester.createGame,
           (game) async {
             final bumper = DashBumper.main();
             await game.pump(bumper);

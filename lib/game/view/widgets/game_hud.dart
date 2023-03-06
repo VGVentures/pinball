@@ -70,8 +70,8 @@ class _GameHudState extends State<GameHud> {
 
 class _ScoreViewDecoration extends StatelessWidget {
   const _ScoreViewDecoration({
-    Key? key,
     required this.child,
+    Key? key,
   }) : super(key: key);
 
   final Widget child;
@@ -108,8 +108,8 @@ class _ScoreViewDecoration extends StatelessWidget {
 
 class _AnimationView extends StatelessWidget {
   const _AnimationView({
-    Key? key,
     required this.onComplete,
+    Key? key,
   }) : super(key: key);
 
   final VoidCallback onComplete;

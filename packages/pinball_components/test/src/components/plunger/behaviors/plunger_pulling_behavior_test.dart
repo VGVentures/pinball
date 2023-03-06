@@ -50,14 +50,16 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<_TestGame>('can be loaded',
+        flameTester.createGame, (game) async {
       final behavior = PlungerPullingBehavior(strength: 0);
       await game.pump(behavior);
       expect(game.descendants(), contains(behavior));
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'applies vertical linear velocity when pulled',
+      flameTester.createGame,
       (game) async {
         final plungerBloc = _MockPlungerCubit();
         whenListen<PlungerState>(
@@ -91,14 +93,16 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<_TestGame>('can be loaded',
+        flameTester.createGame, (game) async {
       final behavior = PlungerAutoPullingBehavior();
       await game.pump(behavior);
       expect(game.descendants(), contains(behavior));
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'releases when joint reaches limit',
+      flameTester.createGame,
       (game) async {
         final plungerBloc = _MockPlungerCubit();
         whenListen<PlungerState>(

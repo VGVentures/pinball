@@ -42,7 +42,8 @@ void main() {
   group('LeaderboardFailureDisplay', () {
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test('renders correctly', (game) async {
+    testWithGame<_TestGame>('renders correctly',
+        flameTester.createGame, (game) async {
       await game.pump(LeaderboardFailureDisplay());
 
       expect(

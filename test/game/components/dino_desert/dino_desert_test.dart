@@ -43,15 +43,17 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('DinoDesert', () {
-    flameTester.test('loads correctly', (game) async {
+    testWithGame<_TestGame>('loads correctly',
+        flameTester.createGame, (game) async {
       final component = DinoDesert();
       await game.pump(component);
       expect(game.descendants(), contains(component));
     });
 
     group('loads', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a ChromeDino',
+        flameTester.createGame,
         (game) async {
           await game.pump(DinoDesert());
           expect(
@@ -61,8 +63,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'DinoWalls',
+        flameTester.createGame,
         (game) async {
           await game.pump(DinoDesert());
           expect(
@@ -72,8 +75,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'Slingshots',
+        flameTester.createGame,
         (game) async {
           await game.pump(DinoDesert());
           expect(
@@ -85,8 +89,9 @@ void main() {
     });
 
     group('adds', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'ScoringContactBehavior to ChromeDino',
+        flameTester.createGame,
         (game) async {
           await game.pump(DinoDesert());
 
@@ -98,7 +103,8 @@ void main() {
         },
       );
 
-      flameTester.test('a ChromeDinoBonusBehavior', (game) async {
+      testWithGame<_TestGame>('a ChromeDinoBonusBehavior',
+          flameTester.createGame, (game) async {
         final component = DinoDesert();
         await game.pump(component);
         expect(

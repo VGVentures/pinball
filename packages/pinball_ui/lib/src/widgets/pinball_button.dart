@@ -8,9 +8,9 @@ import 'package:pinball_ui/pinball_ui.dart';
 class PinballButton extends StatelessWidget {
   /// {@macro pinball_button}
   const PinballButton({
-    Key? key,
     required this.text,
     required this.onTap,
+    Key? key,
   }) : super(key: key);
 
   /// Text of the button.
@@ -43,7 +43,7 @@ class PinballButton extends StatelessWidget {
                 text,
                 style: Theme.of(context)
                     .textTheme
-                    .headline3!
+                    .displaySmall!
                     .copyWith(color: PinballColors.white),
               ),
             ),

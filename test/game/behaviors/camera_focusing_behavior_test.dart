@@ -23,7 +23,8 @@ void main() {
         );
       });
 
-      flameTester.test('loads', (game) async {
+      testWithGame<FlameGame>('loads',
+          flameTester.createGame, (game) async {
         late final behavior = CameraFocusingBehavior();
         await game.ensureAdd(
           FlameBlocProvider<GameBloc, GameState>.value(
@@ -34,7 +35,8 @@ void main() {
         expect(game.descendants(), contains(behavior));
       });
 
-      flameTester.test('resizes and snaps', (game) async {
+      testWithGame<FlameGame>('resizes and snaps',
+          flameTester.createGame, (game) async {
         final behavior = CameraFocusingBehavior();
         await game.ensureAdd(
           FlameBlocProvider<GameBloc, GameState>.value(
@@ -47,8 +49,9 @@ void main() {
         expect(game.camera.zoom, greaterThan(0));
       });
 
-      flameTester.test(
+      testWithGame<FlameGame>(
         'changes focus when loaded',
+        flameTester.createGame,
         (game) async {
           final behavior = CameraFocusingBehavior();
           final previousZoom = game.camera.zoom;
@@ -66,8 +69,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<FlameGame>(
         'listenWhen only listens when status changes',
+        flameTester.createGame,
         (game) async {
           final behavior = CameraFocusingBehavior();
           const waiting = GameState.initial();
@@ -91,8 +95,9 @@ void main() {
       );
 
       group('onNewState', () {
-        flameTester.test(
+        testWithGame<FlameGame>(
           'zooms when started playing',
+          flameTester.createGame,
           (game) async {
             final playing =
                 const GameState.initial().copyWith(status: GameStatus.playing);
@@ -120,8 +125,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<FlameGame>(
           'zooms when game is over',
+          flameTester.createGame,
           (game) async {
             final playing = const GameState.initial().copyWith(
               status: GameStatus.gameOver,

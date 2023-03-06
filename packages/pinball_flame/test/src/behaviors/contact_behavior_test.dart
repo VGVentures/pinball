@@ -68,9 +68,10 @@ void main() {
       fixtureDef = FixtureDef(CircleShape());
     });
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       "should add a new ContactCallbacks to the parent's body userData "
       'when not applied to fixtures',
+      flameTester.createGame,
       (game) async {
         final parent = _TestBodyComponent();
         final contactBehavior = ContactBehavior();
@@ -81,8 +82,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'should add a new ContactCallbacks to the targeted fixture ',
+      flameTester.createGame,
       (game) async {
         final parent = _TestBodyComponent();
 
@@ -103,8 +105,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'should add a new ContactCallbacks to the targeted fixtures ',
+      flameTester.createGame,
       (game) async {
         final parent = _TestBodyComponent();
 
@@ -127,9 +130,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       "should respect the previous ContactCallbacks in the parent's userData "
       'when not applied to fixtures',
+      flameTester.createGame,
       (game) async {
         final parent = _TestBodyComponent();
         await game.ensureAdd(parent);
@@ -163,8 +167,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'can group multiple ContactBehaviors and keep listening',
+      flameTester.createGame,
       (game) async {
         final parent = _TestBodyComponent();
         await game.ensureAdd(parent);
@@ -202,9 +207,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'can group multiple ContactBehaviors and keep listening '
       'when applied to a fixture',
+      flameTester.createGame,
       (game) async {
         final parent = _TestBodyComponent();
         await game.ensureAdd(parent);

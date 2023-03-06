@@ -7,8 +7,8 @@ import 'package:pinball_ui/pinball_ui.dart';
 class PinballLoadingIndicator extends StatelessWidget {
   /// {@macro pinball_loading_indicator}
   const PinballLoadingIndicator({
-    Key? key,
     required this.value,
+    Key? key,
   })  : assert(
           value >= 0.0 && value <= 1.0,
           'Progress must be between 0 and 1',
@@ -35,8 +35,8 @@ class PinballLoadingIndicator extends StatelessWidget {
 
 class _InnerIndicator extends StatelessWidget {
   const _InnerIndicator({
-    Key? key,
     required this.value,
+    Key? key,
     this.widthFactor = 1.0,
   }) : super(key: key);
 

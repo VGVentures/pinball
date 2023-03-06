@@ -12,12 +12,12 @@ class PinballTheme {
 
   static TextTheme get _textTheme {
     return const TextTheme(
-      headline1: PinballTextStyle.headline1,
-      headline2: PinballTextStyle.headline2,
-      headline3: PinballTextStyle.headline3,
-      headline4: PinballTextStyle.headline4,
-      headline5: PinballTextStyle.headline5,
-      subtitle1: PinballTextStyle.subtitle1,
+      displayLarge: PinballTextStyle.headline1,
+      displayMedium: PinballTextStyle.headline2,
+      displaySmall: PinballTextStyle.headline3,
+      headlineLarge: PinballTextStyle.headline4,
+      headlineMedium: PinballTextStyle.headline5,
+      titleMedium: PinballTextStyle.subtitle1,
     );
   }
 }

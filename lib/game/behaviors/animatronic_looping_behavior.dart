@@ -1,5 +1,4 @@
 import 'package:flame/components.dart';
-import 'package:pinball_flame/pinball_flame.dart';
 
 class AnimatronicLoopingBehavior extends TimerComponent
     with ParentIsA<SpriteAnimationComponent> {

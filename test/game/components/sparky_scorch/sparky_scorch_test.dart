@@ -43,7 +43,8 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('SparkyScorch', () {
-    flameTester.test('loads correctly', (game) async {
+    testWithGame<_TestGame>('loads correctly',
+        flameTester.createGame, (game) async {
       final component = SparkyScorch();
       await game.pump(component);
       expect(
@@ -53,8 +54,9 @@ void main() {
     });
 
     group('loads', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a SparkyComputer',
+        flameTester.createGame,
         (game) async {
           await game.pump(SparkyScorch());
           expect(
@@ -64,8 +66,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a SparkyAnimatronic',
+        flameTester.createGame,
         (game) async {
           await game.pump(SparkyScorch());
           expect(
@@ -75,8 +78,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'three SparkyBumper',
+        flameTester.createGame,
         (game) async {
           await game.pump(SparkyScorch());
           expect(
@@ -86,8 +90,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'three SparkyBumpers with BumperNoiseBehavior',
+        flameTester.createGame,
         (game) async {
           await game.pump(SparkyScorch());
           final bumpers = game.descendants().whereType<SparkyBumper>();
@@ -102,8 +107,9 @@ void main() {
     });
 
     group('adds', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'ScoringContactBehavior to SparkyComputer',
+        flameTester.createGame,
         (game) async {
           await game.pump(SparkyScorch());
 
@@ -116,7 +122,8 @@ void main() {
         },
       );
 
-      flameTester.test('a SparkyComputerBonusBehavior', (game) async {
+      testWithGame<_TestGame>('a SparkyComputerBonusBehavior',
+          flameTester.createGame, (game) async {
         final sparkyScorch = SparkyScorch();
         await game.pump(sparkyScorch);
         expect(

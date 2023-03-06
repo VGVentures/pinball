@@ -41,8 +41,9 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('Multipliers', () {
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final component = Multipliers();
         await game.pump(component);
@@ -50,8 +51,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads five Multiplier',
+      flameTester.createGame,
       (game) async {
         final multipliersGroup = Multipliers();
         await game.pump(multipliersGroup);

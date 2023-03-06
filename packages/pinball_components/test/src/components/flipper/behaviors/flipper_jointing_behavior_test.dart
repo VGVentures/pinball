@@ -17,7 +17,8 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<Forge2DGame>('can be loaded',
+        flameTester.createGame, (game) async {
       final parent = Flipper.test(side: BoardSide.left);
       final behavior = FlipperJointingBehavior();
       await game.ensureAdd(parent);
@@ -25,7 +26,8 @@ void main() {
       expect(parent.contains(behavior), isTrue);
     });
 
-    flameTester.test('creates a joint', (game) async {
+    testWithGame<Forge2DGame>('creates a joint',
+        flameTester.createGame, (game) async {
       final parent = Flipper.test(side: BoardSide.left);
       final behavior = FlipperJointingBehavior();
       await game.ensureAdd(parent);

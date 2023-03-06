@@ -51,8 +51,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'adds a ScoreComponentScalingBehavior',
+      flameTester.createGame,
       (game) async {
         await game.onLoad();
         game.camera.followVector2(Vector2.zero());

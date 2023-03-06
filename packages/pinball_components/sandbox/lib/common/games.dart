@@ -39,7 +39,7 @@ abstract class LineGame extends AssetsGame with PanDetector {
     await super.onLoad();
 
     camera.followVector2(Vector2.zero());
-    unawaited(add(_PreviewLine()));
+    unawaited(add(_PreviewLine()) as Future<void>?);
   }
 
   @override

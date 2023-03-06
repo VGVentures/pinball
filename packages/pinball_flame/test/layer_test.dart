@@ -40,7 +40,8 @@ void main() {
       }
     }
 
-    flameTester.test('TestBodyComponent has fixtures', (game) async {
+    testWithGame<Forge2DGame>('TestBodyComponent has fixtures',
+        flameTester.createGame, (game) async {
       final component = _TestBodyComponent();
       await game.ensureAdd(component);
     });
@@ -51,8 +52,9 @@ void main() {
       expect(component.layer, Layer.spaceshipEntranceRamp);
     });
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'layers correctly before being loaded',
+      flameTester.createGame,
       (game) async {
         const expectedLayer = Layer.spaceshipEntranceRamp;
         final component = _TestLayeredBodyComponent()..layer = expectedLayer;
@@ -65,9 +67,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'layers correctly before being loaded '
       'when multiple different sets',
+      flameTester.createGame,
       (game) async {
         const expectedLayer = Layer.launcher;
         final component = _TestLayeredBodyComponent()
@@ -85,8 +88,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'layers correctly after being loaded',
+      flameTester.createGame,
       (game) async {
         const expectedLayer = Layer.spaceshipEntranceRamp;
         final component = _TestLayeredBodyComponent();
@@ -99,9 +103,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'layers correctly after being loaded '
       'when multiple different sets',
+      flameTester.createGame,
       (game) async {
         const expectedLayer = Layer.launcher;
         final component = _TestLayeredBodyComponent();
@@ -118,9 +123,10 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'defaults to Layer.all '
       'when no layer is given',
+      flameTester.createGame,
       (game) async {
         final component = _TestLayeredBodyComponent();
         await game.ensureAdd(component);
@@ -128,8 +134,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'nested Layered children will keep their layer',
+      flameTester.createGame,
       (game) async {
         const parentLayer = Layer.spaceshipEntranceRamp;
         const childLayer = Layer.board;
@@ -150,8 +157,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'nested children will keep their layer',
+      flameTester.createGame,
       (game) async {
         const parentLayer = Layer.spaceshipEntranceRamp;
 

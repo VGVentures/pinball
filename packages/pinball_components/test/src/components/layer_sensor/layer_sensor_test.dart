@@ -29,8 +29,9 @@ void main() {
   const insidePriority = 1;
 
   group('LayerSensor', () {
-    flameTester.test(
+    testWithGame<TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final layerSensor = TestLayerSensor(
           orientation: LayerEntranceOrientation.down,
@@ -44,8 +45,9 @@ void main() {
     );
 
     group('body', () {
-      flameTester.test(
+      testWithGame<TestGame>(
         'is static',
+        flameTester.createGame,
         (game) async {
           final layerSensor = TestLayerSensor(
             orientation: LayerEntranceOrientation.down,
@@ -62,8 +64,9 @@ void main() {
         const pathwayLayer = Layer.spaceshipEntranceRamp;
         const openingLayer = Layer.opening;
 
-        flameTester.test(
+        testWithGame<TestGame>(
           'exists',
+          flameTester.createGame,
           (game) async {
             final layerSensor = TestLayerSensor(
               orientation: LayerEntranceOrientation.down,
@@ -76,8 +79,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<TestGame>(
           'shape is a polygon',
+          flameTester.createGame,
           (game) async {
             final layerSensor = TestLayerSensor(
               orientation: LayerEntranceOrientation.down,
@@ -91,8 +95,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<TestGame>(
           'is sensor',
+          flameTester.createGame,
           (game) async {
             final layerSensor = TestLayerSensor(
               orientation: LayerEntranceOrientation.down,
@@ -108,8 +113,9 @@ void main() {
       });
     });
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'adds a LayerFilteringBehavior',
+      flameTester.createGame,
       (game) async {
         final layerSensor = TestLayerSensor(
           orientation: LayerEntranceOrientation.down,

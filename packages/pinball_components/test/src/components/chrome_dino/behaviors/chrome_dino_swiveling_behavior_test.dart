@@ -28,8 +28,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'creates a RevoluteJoint',
+        flameTester.createGame,
         (game) async {
           final behavior = ChromeDinoSwivelingBehavior();
           final bloc = _MockChromeDinoCubit();
@@ -50,8 +51,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'reverses swivel direction on each timer tick',
+        flameTester.createGame,
         (game) async {
           final behavior = ChromeDinoSwivelingBehavior();
           final bloc = _MockChromeDinoCubit();

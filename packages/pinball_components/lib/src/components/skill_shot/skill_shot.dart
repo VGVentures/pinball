@@ -19,8 +19,8 @@ class SkillShot extends BodyComponent with ZIndex {
         );
 
   SkillShot._({
-    Iterable<Component>? children,
     required this.bloc,
+    Iterable<Component>? children,
   }) : super(
           renderBody: false,
           children: [

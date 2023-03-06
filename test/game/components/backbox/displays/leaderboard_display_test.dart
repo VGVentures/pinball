@@ -105,7 +105,8 @@ void main() {
 
     final flameTester = FlameTester(_TestGame.new);
 
-    flameTester.test('renders the titles', (game) async {
+    testWithGame<_TestGame>('renders the titles',
+        flameTester.createGame, (game) async {
       await game.pump(LeaderboardDisplay(entries: const []));
 
       final textComponents =
@@ -116,7 +117,8 @@ void main() {
       expect(textComponents[2].text, equals('name'));
     });
 
-    flameTester.test('renders the first 5 entries', (game) async {
+    testWithGame<_TestGame>('renders the first 5 entries',
+        flameTester.createGame, (game) async {
       await game.pump(LeaderboardDisplay(entries: leaderboard));
 
       for (final text in [
@@ -142,7 +144,8 @@ void main() {
       }
     });
 
-    flameTester.test('can open the second page', (game) async {
+    testWithGame<_TestGame>('can open the second page',
+        flameTester.createGame, (game) async {
       final display = LeaderboardDisplay(entries: leaderboard);
       await game.pump(display);
 
@@ -181,8 +184,9 @@ void main() {
       }
     });
 
-    flameTester.test(
+    testWithGame<_TestGame>(
       'can open the second page and go back to the first',
+      flameTester.createGame,
       (game) async {
         final display = LeaderboardDisplay(entries: leaderboard);
         await game.pump(display);

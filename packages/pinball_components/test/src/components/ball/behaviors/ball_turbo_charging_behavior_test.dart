@@ -27,7 +27,7 @@ void main() {
         );
       });
 
-      flameTester.test('can be loaded', (game) async {
+      testWithGame<TestGame>('can be loaded', flameTester.createGame, (game) async {
         final ball = Ball.test();
         final behavior = BallTurboChargingBehavior(impulse: Vector2.zero());
         await ball.add(behavior);
@@ -38,8 +38,8 @@ void main() {
         );
       });
 
-      flameTester.test(
-        'impulses the ball velocity when loaded',
+      testWithGame<TestGame>(
+        'impulses the ball velocity when loaded', flameTester.createGame,
         (game) async {
           final ball = Ball.test();
           await game.ensureAdd(ball);
@@ -58,7 +58,7 @@ void main() {
         },
       );
 
-      flameTester.test('adds sprite', (game) async {
+      testWithGame<TestGame>('adds sprite', flameTester.createGame, (game) async {
         final ball = Ball();
         await game.ensureAdd(ball);
 
@@ -72,7 +72,7 @@ void main() {
         );
       });
 
-      flameTester.test('removes sprite after it finishes', (game) async {
+      testWithGame<TestGame>('removes sprite after it finishes', flameTester.createGame, (game) async {
         final ball = Ball();
         await game.ensureAdd(ball);
 

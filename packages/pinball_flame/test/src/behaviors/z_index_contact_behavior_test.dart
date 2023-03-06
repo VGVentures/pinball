@@ -34,7 +34,8 @@ void main() {
       );
     });
 
-    flameTester.test('can be loaded', (game) async {
+    testWithGame<Forge2DGame>('can be loaded',
+        flameTester.createGame, (game) async {
       final behavior = ZIndexContactBehavior(zIndex: 0);
       final parent = _TestBodyComponent();
       await game.ensureAdd(parent);
@@ -42,7 +43,8 @@ void main() {
       expect(parent.children, contains(behavior));
     });
 
-    flameTester.test('beginContact changes zIndex', (game) async {
+    testWithGame<Forge2DGame>('beginContact changes zIndex',
+        flameTester.createGame, (game) async {
       const oldIndex = 0;
       const newIndex = 1;
       final behavior = ZIndexContactBehavior(zIndex: newIndex);
@@ -57,7 +59,8 @@ void main() {
       expect(component.zIndex, newIndex);
     });
 
-    flameTester.test('endContact changes zIndex', (game) async {
+    testWithGame<Forge2DGame>('endContact changes zIndex',
+        flameTester.createGame, (game) async {
       const oldIndex = 0;
       const newIndex = 1;
       final behavior = ZIndexContactBehavior(zIndex: newIndex, onBegin: false);

@@ -47,8 +47,9 @@ void main() {
       },
     );
 
-    flameBlocTester.test(
+    testWithGame<_TestGame>(
       'loads four Multiball',
+      flameBlocTester.createGame,
       (game) async {
         final multiballs = Multiballs();
         await game.pump(multiballs);

@@ -15,8 +15,8 @@ void main() {
   final flameTester = FlameTester(() => TestGame(assets));
 
   group('BoardBackgroundSpriteComponent', () {
-    flameTester.test(
-      'loads correctly',
+    testWithGame<TestGame>(
+      'loads correctly', flameTester.createGame,
       (game) async {
         final boardBackground = BoardBackgroundSpriteComponent();
         await game.ensureAdd(boardBackground);

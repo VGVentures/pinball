@@ -41,12 +41,12 @@ void main() {
         act: (bloc) => bloc.onChomp(ball),
         expect: () => [
           isA<ChromeDinoState>()
-            ..having(
+            .having(
               (state) => state.status,
               'status',
               ChromeDinoStatus.chomping,
             )
-            ..having(
+            .having(
               (state) => state.ball,
               'ball',
               ball,
@@ -71,7 +71,7 @@ void main() {
             (state) => state.status,
             'status',
             ChromeDinoStatus.idle,
-          )..having(
+          ).having(
               (state) => state.ball,
               'ball',
               null,

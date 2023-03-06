@@ -50,8 +50,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final androidAnimatronic = AndroidAnimatronic();
         await game.ensureAdd(androidAnimatronic);
@@ -60,7 +61,8 @@ void main() {
     );
 
     group('adds', () {
-      flameTester.test('new children', (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+              (game) async {
         final component = Component();
         final androidAnimatronic = AndroidAnimatronic(
           children: [component],
@@ -69,7 +71,7 @@ void main() {
         expect(androidAnimatronic.children, contains(component));
       });
 
-      flameTester.test('a AndroidAnimatronicBallContactBehavior', (game) async {
+      testWithGame<TestGame>('a AndroidAnimatronicBallContactBehavior', flameTester.createGame, (game) async {
         final androidAnimatronic = AndroidAnimatronic();
         await game.ensureAdd(androidAnimatronic);
         expect(

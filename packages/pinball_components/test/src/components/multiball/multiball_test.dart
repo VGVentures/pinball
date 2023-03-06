@@ -22,35 +22,40 @@ void main() {
 
   group('Multiball', () {
     group('loads correctly', () {
-      flameTester.test('"a"', (game) async {
+      testWithGame<TestGame>('"a"',
+          flameTester.createGame, (game) async {
         final multiball = Multiball.a();
         await game.ensureAdd(multiball);
 
         expect(game.contains(multiball), isTrue);
       });
 
-      flameTester.test('"b"', (game) async {
+      testWithGame<TestGame>('"b"',
+          flameTester.createGame, (game) async {
         final multiball = Multiball.b();
         await game.ensureAdd(multiball);
         expect(game.contains(multiball), isTrue);
       });
 
-      flameTester.test('"c"', (game) async {
+      testWithGame<TestGame>('"c"',
+          flameTester.createGame, (game) async {
         final multiball = Multiball.c();
         await game.ensureAdd(multiball);
 
         expect(game.contains(multiball), isTrue);
       });
 
-      flameTester.test('"d"', (game) async {
+      testWithGame<TestGame>('"d"',
+          flameTester.createGame, (game) async {
         final multiball = Multiball.d();
         await game.ensureAdd(multiball);
         expect(game.contains(multiball), isTrue);
       });
     });
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'closes bloc when removed',
+      flameTester.createGame,
       (game) async {
         final bloc = _MockMultiballCubit();
         whenListen(
@@ -70,7 +75,8 @@ void main() {
     );
 
     group('adds', () {
-      flameTester.test('new children', (game) async {
+      testWithGame<TestGame>('new children',
+          flameTester.createGame, (game) async {
         final component = Component();
         final multiball = Multiball.a(
           children: [component],
@@ -79,7 +85,8 @@ void main() {
         expect(multiball.children, contains(component));
       });
 
-      flameTester.test('a MultiballBlinkingBehavior', (game) async {
+      testWithGame<TestGame>('a MultiballBlinkingBehavior',
+          flameTester.createGame, (game) async {
         final multiball = Multiball.a();
         await game.ensureAdd(multiball);
         expect(

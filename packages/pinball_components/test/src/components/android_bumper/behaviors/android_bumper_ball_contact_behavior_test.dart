@@ -30,8 +30,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'beginContact emits onBallContacted when contacts with a ball',
+        flameTester.createGame,
         (game) async {
           final behavior = AndroidBumperBallContactBehavior();
           final bloc = _MockAndroidBumperCubit();

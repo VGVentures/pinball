@@ -35,8 +35,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'beginContact sets ball sprite to be invisible and calls onChomp',
+        flameTester.createGame,
         (game) async {
           final ball = Ball();
           final behavior = ChromeDinoChompingBehavior();

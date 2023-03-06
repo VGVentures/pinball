@@ -75,8 +75,9 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('InitialsInputDisplay', () {
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final component = InitialsInputDisplay(
           score: 0,

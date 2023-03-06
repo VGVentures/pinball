@@ -55,8 +55,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'loads',
+        flameTester.createGame,
         (game) async {
           final behavior = BallSpawningBehavior();
           await game.pump([behavior]);
@@ -123,8 +124,9 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'onNewState adds a ball',
+        flameTester.createGame,
         (game) async {
           final behavior = BallSpawningBehavior();
           await game.pump([

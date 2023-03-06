@@ -26,20 +26,23 @@ void main() {
       );
     });
 
-    flameTester.test('left loads correctly', (game) async {
+    testWithGame<TestGame>('left loads correctly',
+        flameTester.createGame, (game) async {
       final googleRollover = GoogleRollover(side: BoardSide.left);
       await game.ensureAdd(googleRollover);
       expect(game.contains(googleRollover), isTrue);
     });
 
-    flameTester.test('right loads correctly', (game) async {
+    testWithGame<TestGame>('right loads correctly',
+        flameTester.createGame, (game) async {
       final googleRollover = GoogleRollover(side: BoardSide.right);
       await game.ensureAdd(googleRollover);
       expect(game.contains(googleRollover), isTrue);
     });
 
     group('adds', () {
-      flameTester.test('new children', (game) async {
+      testWithGame<TestGame>('new children',
+          flameTester.createGame, (game) async {
         final component = Component();
         final googleRollover = GoogleRollover(
           side: BoardSide.left,
@@ -49,7 +52,8 @@ void main() {
         expect(googleRollover.children, contains(component));
       });
 
-      flameTester.test('a GoogleRolloverBallContactBehavior', (game) async {
+      testWithGame<TestGame>('a GoogleRolloverBallContactBehavior',
+          flameTester.createGame, (game) async {
         final googleRollover = GoogleRollover(side: BoardSide.left);
         await game.ensureAdd(googleRollover);
         expect(
@@ -61,8 +65,9 @@ void main() {
       });
     });
 
-    flameTester.test(
+    testWithGame<TestGame>(
       'pin stops animating after animation completes',
+      flameTester.createGame,
       (game) async {
         final googleRollover = GoogleRollover(side: BoardSide.left);
         await game.ensureAdd(googleRollover);

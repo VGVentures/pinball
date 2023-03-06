@@ -4,8 +4,6 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flame_bloc/flame_bloc.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flame_test/flame_test.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -64,8 +62,9 @@ void main() {
         });
 
         group('on right Flipper', () {
-          flameTester.test(
+          testWithGame<_TestGame>(
             'moves upwards when right arrow is pressed',
+            flameTester.createGame,
             (game) async {
               final behavior = FlipperKeyControllingBehavior();
               await game.pump(
@@ -86,8 +85,9 @@ void main() {
             },
           );
 
-          flameTester.test(
+          testWithGame<_TestGame>(
             'moves downwards when right arrow is released',
+            flameTester.createGame,
             (game) async {
               final behavior = FlipperKeyControllingBehavior();
               await game.pump(
@@ -108,8 +108,9 @@ void main() {
             },
           );
 
-          flameTester.test(
+          testWithGame<_TestGame>(
             'moves upwards when D is pressed',
+            flameTester.createGame,
             (game) async {
               final behavior = FlipperKeyControllingBehavior();
               await game.pump(
@@ -130,8 +131,9 @@ void main() {
             },
           );
 
-          flameTester.test(
+          testWithGame<_TestGame>(
             'moves downwards when D is released',
+            flameTester.createGame,
             (game) async {
               final behavior = FlipperKeyControllingBehavior();
               await game.pump(
@@ -153,8 +155,9 @@ void main() {
           );
 
           group("doesn't move when", () {
-            flameTester.test(
+            testWithGame<_TestGame>(
               'left arrow is pressed',
+              flameTester.createGame,
               (game) async {
                 final behavior = FlipperKeyControllingBehavior();
                 await game.pump(
@@ -175,8 +178,9 @@ void main() {
               },
             );
 
-            flameTester.test(
+            testWithGame<_TestGame>(
               'left arrow is released',
+              flameTester.createGame,
               (game) async {
                 final behavior = FlipperKeyControllingBehavior();
                 await game.pump(
@@ -197,8 +201,9 @@ void main() {
               },
             );
 
-            flameTester.test(
+            testWithGame<_TestGame>(
               'A is pressed',
+              flameTester.createGame,
               (game) async {
                 final behavior = FlipperKeyControllingBehavior();
                 await game.pump(
@@ -219,8 +224,9 @@ void main() {
               },
             );
 
-            flameTester.test(
+            testWithGame<_TestGame>(
               'A is released',
+              flameTester.createGame,
               (game) async {
                 final behavior = FlipperKeyControllingBehavior();
                 await game.pump(
@@ -244,8 +250,9 @@ void main() {
         });
 
         group('on left Flipper', () {
-          flameTester.test(
+          testWithGame<_TestGame>(
             'moves upwards when left arrow is pressed',
+            flameTester.createGame,
             (game) async {
               final behavior = FlipperKeyControllingBehavior();
               await game.pump(
@@ -266,8 +273,9 @@ void main() {
             },
           );
 
-          flameTester.test(
+          testWithGame<_TestGame>(
             'moves downwards when left arrow is released',
+            flameTester.createGame,
             (game) async {
               final behavior = FlipperKeyControllingBehavior();
               await game.pump(
@@ -288,8 +296,9 @@ void main() {
             },
           );
 
-          flameTester.test(
+          testWithGame<_TestGame>(
             'moves upwards when A is pressed',
+            flameTester.createGame,
             (game) async {
               final behavior = FlipperKeyControllingBehavior();
               await game.pump(
@@ -310,8 +319,9 @@ void main() {
             },
           );
 
-          flameTester.test(
+          testWithGame<_TestGame>(
             'moves downwards when A is released',
+            flameTester.createGame,
             (game) async {
               final behavior = FlipperKeyControllingBehavior();
               await game.pump(
@@ -333,8 +343,9 @@ void main() {
           );
 
           group("doesn't move when", () {
-            flameTester.test(
+            testWithGame<_TestGame>(
               'right arrow is pressed',
+              flameTester.createGame,
               (game) async {
                 final behavior = FlipperKeyControllingBehavior();
                 await game.pump(
@@ -355,8 +366,9 @@ void main() {
               },
             );
 
-            flameTester.test(
+            testWithGame<_TestGame>(
               'right arrow is released',
+              flameTester.createGame,
               (game) async {
                 final behavior = FlipperKeyControllingBehavior();
                 await game.pump(
@@ -377,8 +389,9 @@ void main() {
               },
             );
 
-            flameTester.test(
+            testWithGame<_TestGame>(
               'D is pressed',
+              flameTester.createGame,
               (game) async {
                 final behavior = FlipperKeyControllingBehavior();
                 await game.pump(
@@ -399,8 +412,9 @@ void main() {
               },
             );
 
-            flameTester.test(
+            testWithGame<_TestGame>(
               'D is released',
+              flameTester.createGame,
               (game) async {
                 final behavior = FlipperKeyControllingBehavior();
                 await game.pump(

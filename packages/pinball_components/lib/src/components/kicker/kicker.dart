@@ -8,7 +8,6 @@ import 'package:pinball_components/gen/assets.gen.dart';
 import 'package:pinball_components/pinball_components.dart' hide Assets;
 import 'package:pinball_components/src/components/bumping_behavior.dart';
 import 'package:pinball_components/src/components/kicker/behaviors/behaviors.dart';
-import 'package:pinball_flame/pinball_flame.dart';
 
 export 'cubit/kicker_cubit.dart';
 

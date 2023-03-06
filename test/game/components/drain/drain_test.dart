@@ -11,8 +11,9 @@ void main() {
   final flameTester = FlameTester(Forge2DGame.new);
 
   group('Drain', () {
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final drain = Drain();
         await game.ensureAdd(drain);
@@ -20,8 +21,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'body is static',
+      flameTester.createGame,
       (game) async {
         final drain = Drain();
         await game.ensureAdd(drain);
@@ -29,8 +31,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<Forge2DGame>(
       'is sensor',
+      flameTester.createGame,
       (game) async {
         final drain = Drain();
         await game.ensureAdd(drain);

@@ -18,8 +18,9 @@ void main() {
       );
     });
 
-    flameTester.test(
+    testWithGame<PinballForge2DGame>(
       'screenToFlameWorld throws UnimplementedError',
+      flameTester.createGame,
       (game) async {
         expect(
           () => game.screenToFlameWorld(Vector2.zero()),
@@ -28,8 +29,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<PinballForge2DGame>(
       'screenToWorld throws UnimplementedError',
+      flameTester.createGame,
       (game) async {
         expect(
           () => game.screenToWorld(Vector2.zero()),
@@ -38,8 +40,9 @@ void main() {
       },
     );
 
-    flameTester.test(
+    testWithGame<PinballForge2DGame>(
       'worldToScreen throws UnimplementedError',
+      flameTester.createGame,
       (game) async {
         expect(
           () => game.worldToScreen(Vector2.zero()),

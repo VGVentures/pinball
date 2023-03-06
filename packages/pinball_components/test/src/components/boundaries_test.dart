@@ -19,7 +19,7 @@ void main() {
     ];
     final flameTester = FlameTester(() => TestGame(assets));
 
-    flameTester.test('loads correctly', (game) async {
+    testWithGame<TestGame>('loads correctly', flameTester.createGame, (game) async {
       final component = Boundaries();
       await game.ensureAdd(component);
       expect(game.contains(component), isTrue);

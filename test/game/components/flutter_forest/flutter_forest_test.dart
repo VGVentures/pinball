@@ -56,8 +56,9 @@ void main() {
   final flameTester = FlameTester(_TestGame.new);
 
   group('FlutterForest', () {
-    flameTester.test(
+    testWithGame<_TestGame>(
       'loads correctly',
+      flameTester.createGame,
       (game) async {
         final component = FlutterForest();
         await game.pump(component);
@@ -66,8 +67,9 @@ void main() {
     );
 
     group('loads', () {
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a Signpost',
+        flameTester.createGame,
         (game) async {
           final component = FlutterForest();
           await game.pump(component);
@@ -78,8 +80,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'a DashAnimatronic',
+        flameTester.createGame,
         (game) async {
           final component = FlutterForest();
           await game.pump(component);
@@ -90,8 +93,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'three DashBumper',
+        flameTester.createGame,
         (game) async {
           final component = FlutterForest();
           await game.pump(component);
@@ -102,8 +106,9 @@ void main() {
         },
       );
 
-      flameTester.test(
+      testWithGame<_TestGame>(
         'three DashBumpers with BumperNoiseBehavior',
+        flameTester.createGame,
         (game) async {
           final component = FlutterForest();
           await game.pump(component);

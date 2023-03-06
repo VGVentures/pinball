@@ -51,8 +51,8 @@ extension on Control {
 
 class HowToPlayDialog extends StatefulWidget {
   const HowToPlayDialog({
-    Key? key,
     required this.onDismissCallback,
+    Key? key,
   }) : super(key: key);
 
   final VoidCallback onDismissCallback;
@@ -134,7 +134,7 @@ class _MobileLaunchControls extends StatelessWidget {
     final l10n = context.l10n;
     final headline3 = Theme.of(context)
         .textTheme
-        .headline3!
+        .displaySmall!
         .copyWith(color: PinballColors.white);
     return Column(
       children: [
@@ -163,7 +163,7 @@ class _MobileFlipperControls extends StatelessWidget {
     final l10n = context.l10n;
     final headline3 = Theme.of(context)
         .textTheme
-        .headline3!
+        .displaySmall!
         .copyWith(color: PinballColors.white);
     return Column(
       children: [
@@ -212,7 +212,7 @@ class _DesktopLaunchControls extends StatelessWidget {
       children: [
         Text(
           l10n.launchControls,
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
         const SizedBox(height: 10),
         Wrap(
@@ -239,7 +239,7 @@ class _DesktopFlipperControls extends StatelessWidget {
       children: [
         Text(
           l10n.flipperControls,
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
         const SizedBox(height: 10),
         Column(
@@ -269,7 +269,7 @@ class _DesktopFlipperControls extends StatelessWidget {
 }
 
 class _KeyButton extends StatelessWidget {
-  const _KeyButton({Key? key, required this.control}) : super(key: key);
+  const _KeyButton({required this.control, Key? key}) : super(key: key);
 
   final Control control;
 
@@ -277,7 +277,7 @@ class _KeyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final textStyle =
-        control.isArrow ? textTheme.headline1 : textTheme.headline3;
+        control.isArrow ? textTheme.displayLarge : textTheme.displaySmall;
     const height = 60.0;
     final width = control.isSpace ? height * 2.83 : height;
     return DecoratedBox(

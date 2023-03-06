@@ -2,7 +2,6 @@
 
 import 'package:flame/game.dart';
 import 'package:flame_test/flame_test.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -104,7 +103,8 @@ void main() {
     final flameTester = FlameTester(_TestGame.new);
 
     group('onVirtualKeyUp', () {
-      flameTester.test('triggers the event', (game) async {
+      testWithGame<_TestGame>('triggers the event',
+          flameTester.createGame, (game) async {
         await game.ready();
         game.triggerVirtualKeyUp(LogicalKeyboardKey.enter);
         expect(game.pressed, isTrue);

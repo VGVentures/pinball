@@ -77,8 +77,9 @@ void main() {
           when(() => ball.body).thenReturn(body);
         });
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           "calls 'onAscendingBallEntered' when a ball enters into the ramp",
+          flameTester.createGame,
           (game) async {
             final behavior = RampBallAscendingContactBehavior();
             final bloc = _MockSpaceshipRampCubit();
@@ -107,8 +108,9 @@ void main() {
           },
         );
 
-        flameTester.test(
+        testWithGame<_TestGame>(
           "doesn't call 'onAscendingBallEntered' when a ball goes out the ramp",
+          flameTester.createGame,
           (game) async {
             final behavior = RampBallAscendingContactBehavior();
             final bloc = _MockSpaceshipRampCubit();

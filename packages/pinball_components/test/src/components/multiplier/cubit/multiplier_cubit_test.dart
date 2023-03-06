@@ -14,7 +14,7 @@ void main() {
         act: (bloc) => bloc.next(2),
         expect: () => [
           isA<MultiplierState>()
-            ..having(
+            .having(
               (state) => state.spriteState,
               'spriteState',
               MultiplierSpriteState.lit,
@@ -28,7 +28,7 @@ void main() {
         act: (bloc) => bloc.next(3),
         expect: () => [
           isA<MultiplierState>()
-            ..having(
+            .having(
               (state) => state.spriteState,
               'spriteState',
               MultiplierSpriteState.lit,
@@ -42,7 +42,7 @@ void main() {
         act: (bloc) => bloc.next(4),
         expect: () => [
           isA<MultiplierState>()
-            ..having(
+            .having(
               (state) => state.spriteState,
               'spriteState',
               MultiplierSpriteState.lit,
@@ -56,7 +56,7 @@ void main() {
         act: (bloc) => bloc.next(5),
         expect: () => [
           isA<MultiplierState>()
-            ..having(
+            .having(
               (state) => state.spriteState,
               'spriteState',
               MultiplierSpriteState.lit,
@@ -70,7 +70,7 @@ void main() {
         act: (bloc) => bloc.next(6),
         expect: () => [
           isA<MultiplierState>()
-            ..having(
+            .having(
               (state) => state.spriteState,
               'spriteState',
               MultiplierSpriteState.lit,
@@ -88,7 +88,7 @@ void main() {
         act: (bloc) => bloc.next(3),
         expect: () => [
           isA<MultiplierState>()
-            ..having(
+            .having(
               (state) => state.spriteState,
               'spriteState',
               MultiplierSpriteState.dimmed,

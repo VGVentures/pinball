@@ -11,8 +11,8 @@ import 'package:pinball_theme/pinball_theme.dart';
 class SelectedCharacter extends StatefulWidget {
   /// {@macro selected_character}
   const SelectedCharacter({
-    Key? key,
     required this.currentCharacter,
+    Key? key,
   }) : super(key: key);
 
   /// The character that is selected at the moment.
@@ -22,7 +22,7 @@ class SelectedCharacter extends StatefulWidget {
   State<SelectedCharacter> createState() => _SelectedCharacterState();
 
   /// Returns a list of assets to be loaded.
-  static List<Future Function()> loadAssets() {
+  static List<Future<dynamic> Function()> loadAssets() {
     return [
       () => Flame.images.load(const DashTheme().animation.keyName),
       () => Flame.images.load(const AndroidTheme().animation.keyName),
@@ -60,7 +60,7 @@ class _SelectedCharacterState extends State<SelectedCharacter>
       children: [
         Text(
           widget.currentCharacter.name,
-          style: Theme.of(context).textTheme.headline2,
+          style: Theme.of(context).textTheme.displayMedium,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
         ),

@@ -24,9 +24,10 @@ void main() {
         );
       });
 
-      flameTester.test(
+      testWithGame<TestGame>(
         'impulses the ball with the given velocity when loaded '
         'and then removes itself',
+        flameTester.createGame,
         (game) async {
           final ball = Ball.test();
           await game.ensureAdd(ball);

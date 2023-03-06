@@ -11,7 +11,7 @@ extension StoryAddGame on Story {
     required String description,
     required Game Function(DashbookContext) gameBuilder,
   }) {
-    final _chapter = Chapter(
+    final chapter = Chapter(
       title,
       (DashbookContext context) {
         final game = gameBuilder(context);
@@ -25,7 +25,7 @@ extension StoryAddGame on Story {
       codeLink: '$_path${name.toPath()}/${title.toPath()}',
       info: description,
     );
-    chapters.add(_chapter);
+    chapters.add(chapter);
   }
 }
 
