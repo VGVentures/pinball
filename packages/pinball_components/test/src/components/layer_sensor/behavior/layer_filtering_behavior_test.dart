@@ -82,8 +82,7 @@ void main() {
         testWithGame<TestGame>(
             'changes ball layer and zIndex '
             'when a ball enters and exits a downward oriented LayerSensor',
-            flameTester.createGame,
-            (game) async {
+            flameTester.createGame, (game) async {
           final parent = _TestLayerSensor(
             orientation: LayerEntranceOrientation.down,
             insideZIndex: 1,
@@ -110,8 +109,7 @@ void main() {
         testWithGame<TestGame>(
             'changes ball layer and zIndex '
             'when a ball enters and exits an upward oriented LayerSensor',
-            flameTester.createGame,
-            (game) async {
+            flameTester.createGame, (game) async {
           final parent = _TestLayerSensor(
             orientation: LayerEntranceOrientation.up,
             insideZIndex: 1,

@@ -11,8 +11,8 @@ import 'package:pinball_components/src/components/android_animatronic/behaviors/
 
 import '../../../../helpers/helpers.dart';
 
-class _MockAndroidSpaceshipCubit extends Mock implements AndroidSpaceshipCubit {
-}
+class _MockAndroidSpaceshipCubit extends Mock
+    implements AndroidSpaceshipCubit {}
 
 class _MockBall extends Mock implements Ball {}
 

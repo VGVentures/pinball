@@ -38,7 +38,8 @@ void main() {
       );
     });
 
-    testWithGame<TestGame>('can be added', flameTester.createGame, (game) async {
+    testWithGame<TestGame>('can be added', flameTester.createGame,
+        (game) async {
       final behavior = BumpingBehavior(strength: 0);
       final component = _TestBodyComponent();
       await component.add(behavior);

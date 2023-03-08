@@ -26,23 +26,23 @@ void main() {
       );
     });
 
-    testWithGame<TestGame>('left loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('left loads correctly', flameTester.createGame,
+        (game) async {
       final googleRollover = GoogleRollover(side: BoardSide.left);
       await game.ensureAdd(googleRollover);
       expect(game.contains(googleRollover), isTrue);
     });
 
-    testWithGame<TestGame>('right loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('right loads correctly', flameTester.createGame,
+        (game) async {
       final googleRollover = GoogleRollover(side: BoardSide.right);
       await game.ensureAdd(googleRollover);
       expect(game.contains(googleRollover), isTrue);
     });
 
     group('adds', () {
-      testWithGame<TestGame>('new children',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+          (game) async {
         final component = Component();
         final googleRollover = GoogleRollover(
           side: BoardSide.left,
@@ -52,8 +52,9 @@ void main() {
         expect(googleRollover.children, contains(component));
       });
 
-      testWithGame<TestGame>('a GoogleRolloverBallContactBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a GoogleRolloverBallContactBehavior', flameTester.createGame,
+          (game) async {
         final googleRollover = GoogleRollover(side: BoardSide.left);
         await game.ensureAdd(googleRollover);
         expect(

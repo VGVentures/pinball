@@ -236,8 +236,8 @@ void main() {
       },
     );
 
-    testWithGame<_TestGame>('adds new children',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('adds new children', flameTester.createGame,
+        (game) async {
       final component = Component();
       final signpost = Signpost(
         children: [component],

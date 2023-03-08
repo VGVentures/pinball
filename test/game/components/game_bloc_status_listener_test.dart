@@ -18,7 +18,14 @@ import 'package:pinball_theme/pinball_theme.dart' as theme;
 import 'package:platform_helper/platform_helper.dart';
 import 'package:share_repository/share_repository.dart';
 
+import '../../helpers/overlays_extension.dart';
+
 class _TestGame extends Forge2DGame with HasTappables {
+
+  _TestGame() {
+    withFakeOverlay('mobile_controls');
+  }
+
   @override
   Future<void> onLoad() async {
     images.prefix = '';

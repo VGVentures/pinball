@@ -16,8 +16,8 @@ void main() {
     ];
     final flameTester = FlameTester(() => TestGame(assets));
 
-    testWithGame<TestGame>('loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('loads correctly', flameTester.createGame,
+        (game) async {
       final component = Slingshots();
       await game.ensureAdd(component);
       expect(game.contains(component), isTrue);
@@ -40,8 +40,8 @@ void main() {
       },
     );
 
-    testWithGame<TestGame>('adds BumpingBehavior',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('adds BumpingBehavior', flameTester.createGame,
+        (game) async {
       final slingshots = Slingshots();
       await game.ensureAdd(slingshots);
       for (final slingshot in slingshots.children) {

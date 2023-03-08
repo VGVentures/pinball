@@ -19,8 +19,8 @@ void main() {
     ];
     final flameTester = FlameTester(() => TestGame(assets));
 
-    testWithGame<TestGame>('loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('loads correctly', flameTester.createGame,
+        (game) async {
       final component = Flapper();
       await game.ensureAdd(component);
       expect(game.contains(component), isTrue);
@@ -69,8 +69,7 @@ void main() {
     );
 
     testWithGame<TestGame>('adds a FlapperSpinningBehavior to FlapperEntrance',
-        flameTester.createGame,
-        (game) async {
+        flameTester.createGame, (game) async {
       final flapper = Flapper();
       await game.ensureAdd(flapper);
 

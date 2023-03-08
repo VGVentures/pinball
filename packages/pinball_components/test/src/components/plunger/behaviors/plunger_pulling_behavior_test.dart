@@ -50,8 +50,8 @@ void main() {
       );
     });
 
-    testWithGame<_TestGame>('can be loaded',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final behavior = PlungerPullingBehavior(strength: 0);
       await game.pump(behavior);
       expect(game.descendants(), contains(behavior));
@@ -93,8 +93,8 @@ void main() {
       );
     });
 
-    testWithGame<_TestGame>('can be loaded',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final behavior = PlungerAutoPullingBehavior();
       await game.pump(behavior);
       expect(game.descendants(), contains(behavior));

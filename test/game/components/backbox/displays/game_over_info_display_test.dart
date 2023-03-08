@@ -5,6 +5,7 @@ import 'package:flame/input.dart';
 import 'package:flame_bloc/flame_bloc.dart';
 import 'package:flame_forge2d/flame_forge2d.dart';
 import 'package:flame_test/flame_test.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pinball/game/bloc/game_bloc.dart';
@@ -16,7 +17,14 @@ import 'package:pinball_ui/pinball_ui.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:share_repository/share_repository.dart';
 
+import '../../../../helpers/overlays_extension.dart';
+
 class _TestGame extends Forge2DGame with HasTappables {
+
+  _TestGame() {
+    withFakeOverlay('replay_button');
+  }
+
   @override
   Future<void> onLoad() async {
     await super.onLoad();

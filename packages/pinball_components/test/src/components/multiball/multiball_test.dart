@@ -22,31 +22,27 @@ void main() {
 
   group('Multiball', () {
     group('loads correctly', () {
-      testWithGame<TestGame>('"a"',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('"a"', flameTester.createGame, (game) async {
         final multiball = Multiball.a();
         await game.ensureAdd(multiball);
 
         expect(game.contains(multiball), isTrue);
       });
 
-      testWithGame<TestGame>('"b"',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('"b"', flameTester.createGame, (game) async {
         final multiball = Multiball.b();
         await game.ensureAdd(multiball);
         expect(game.contains(multiball), isTrue);
       });
 
-      testWithGame<TestGame>('"c"',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('"c"', flameTester.createGame, (game) async {
         final multiball = Multiball.c();
         await game.ensureAdd(multiball);
 
         expect(game.contains(multiball), isTrue);
       });
 
-      testWithGame<TestGame>('"d"',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('"d"', flameTester.createGame, (game) async {
         final multiball = Multiball.d();
         await game.ensureAdd(multiball);
         expect(game.contains(multiball), isTrue);
@@ -75,8 +71,8 @@ void main() {
     );
 
     group('adds', () {
-      testWithGame<TestGame>('new children',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+          (game) async {
         final component = Component();
         final multiball = Multiball.a(
           children: [component],
@@ -85,8 +81,8 @@ void main() {
         expect(multiball.children, contains(component));
       });
 
-      testWithGame<TestGame>('a MultiballBlinkingBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a MultiballBlinkingBehavior', flameTester.createGame, (game) async {
         final multiball = Multiball.a();
         await game.ensureAdd(multiball);
         expect(

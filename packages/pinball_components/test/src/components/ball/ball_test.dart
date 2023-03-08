@@ -80,8 +80,7 @@ void main() {
     );
 
     group('adds', () {
-      testWithGame<TestGame>('a BallScalingBehavior',
-          flameTester.createGame,
+      testWithGame<TestGame>('a BallScalingBehavior', flameTester.createGame,
           (game) async {
         final ball = Ball();
         await game.ensureAdd(ball);
@@ -91,9 +90,8 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('a BallGravitatingBehavior',
-          flameTester.createGame,
-              (game) async {
+      testWithGame<TestGame>(
+          'a BallGravitatingBehavior', flameTester.createGame, (game) async {
         final ball = Ball();
         await game.ensureAdd(ball);
         expect(
@@ -116,8 +114,8 @@ void main() {
       );
 
       group('can be moved', () {
-        testWithGame<TestGame>('by its weight',
-            flameTester.createGame, (game) async {
+        testWithGame<TestGame>('by its weight', flameTester.createGame,
+            (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
 
@@ -125,9 +123,8 @@ void main() {
           expect(ball.body.position, isNot(equals(ball.initialPosition)));
         });
 
-        testWithGame<TestGame>('by applying velocity',
-            flameTester.createGame,
-                (game) async {
+        testWithGame<TestGame>('by applying velocity', flameTester.createGame,
+            (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
 
@@ -193,9 +190,8 @@ void main() {
 
     group('stop', () {
       group("can't be moved", () {
-        testWithGame<TestGame>('by its weight',
-            flameTester.createGame,
-                (game) async {
+        testWithGame<TestGame>('by its weight', flameTester.createGame,
+            (game) async {
           final ball = Ball();
           await game.ensureAdd(ball);
           ball.stop();
@@ -225,7 +221,7 @@ void main() {
         testWithGame<TestGame>(
           'by applying velocity when previously stopped',
           flameTester.createGame,
-              (game) async {
+          (game) async {
             final ball = Ball();
             await game.ensureAdd(ball);
             ball.stop();

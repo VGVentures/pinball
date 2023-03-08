@@ -22,7 +22,8 @@ void main() {
       );
     });
 
-    testWithGame<TestGame>('can be loaded', flameTester.createGame, (game) async {
+    testWithGame<TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final ball = Ball.test();
       final behavior = BallScalingBehavior();
       await ball.add(behavior);
@@ -33,7 +34,8 @@ void main() {
       );
     });
 
-    testWithGame<TestGame>('scales the shape radius', flameTester.createGame, (game) async {
+    testWithGame<TestGame>('scales the shape radius', flameTester.createGame,
+        (game) async {
       final ball1 = Ball.test()..initialPosition = Vector2(0, 10);
       await ball1.add(BallScalingBehavior());
 
@@ -52,7 +54,8 @@ void main() {
     });
 
     testWithGame<TestGame>(
-      'scales the sprite', flameTester.createGame,
+      'scales the sprite',
+      flameTester.createGame,
       (game) async {
         final ball1 = Ball.test()..initialPosition = Vector2(0, 10);
         await ball1.add(BallScalingBehavior());

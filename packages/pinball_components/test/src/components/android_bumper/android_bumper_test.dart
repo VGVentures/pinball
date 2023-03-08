@@ -66,8 +66,9 @@ void main() {
     });
 
     group('adds', () {
-      testWithGame<TestGame>('an AndroidBumperBallContactBehavior', flameTester.createGame,
-        (game) async {
+      testWithGame<TestGame>(
+          'an AndroidBumperBallContactBehavior', flameTester.createGame,
+          (game) async {
         final androidBumper = AndroidBumper.a();
         await game.ensureAdd(androidBumper);
         expect(
@@ -78,8 +79,9 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('an AndroidBumperBlinkingBehavior', flameTester.createGame,
-        (game) async {
+      testWithGame<TestGame>(
+          'an AndroidBumperBlinkingBehavior', flameTester.createGame,
+          (game) async {
         final androidBumper = AndroidBumper.a();
         await game.ensureAdd(androidBumper);
         expect(
@@ -93,7 +95,7 @@ void main() {
 
     group("'a' adds", () {
       testWithGame<TestGame>('new children', flameTester.createGame,
-        (game) async {
+          (game) async {
         final component = Component();
         final androidBumper = AndroidBumper.a(
           children: [component],
@@ -103,7 +105,7 @@ void main() {
       });
 
       testWithGame<TestGame>('a BumpingBehavior', flameTester.createGame,
-        (game) async {
+          (game) async {
         final androidBumper = AndroidBumper.a();
         await game.ensureAdd(androidBumper);
         expect(
@@ -115,7 +117,7 @@ void main() {
 
     group("'b' adds", () {
       testWithGame<TestGame>('new children', flameTester.createGame,
-        (game) async {
+          (game) async {
         final component = Component();
         final androidBumper = AndroidBumper.b(
           children: [component],
@@ -125,7 +127,7 @@ void main() {
       });
 
       testWithGame<TestGame>('a BumpingBehavior', flameTester.createGame,
-        (game) async {
+          (game) async {
         final androidBumper = AndroidBumper.b();
         await game.ensureAdd(androidBumper);
         expect(
@@ -137,7 +139,7 @@ void main() {
 
     group("'cow' adds", () {
       testWithGame<TestGame>('new children', flameTester.createGame,
-        (game) async {
+          (game) async {
         final component = Component();
         final androidBumper = AndroidBumper.cow(
           children: [component],
@@ -147,7 +149,7 @@ void main() {
       });
 
       testWithGame<TestGame>('a BumpingBehavior', flameTester.createGame,
-        (game) async {
+          (game) async {
         final androidBumper = AndroidBumper.cow();
         await game.ensureAdd(androidBumper);
         expect(

@@ -57,8 +57,8 @@ void main() {
       );
     });
 
-    testWithGame<_TestGame>('can be loaded',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final behavior = PlungerNoiseBehavior();
       await game.pump(behavior);
       expect(game.descendants(), contains(behavior));

@@ -164,17 +164,17 @@ void main() {
         },
         expect: () => [
           isA<GameState>()
-            .having((state) => state.roundScore, 'roundScore', 0)
-            .having((state) => state.rounds, 'rounds', 2)
-            .having(
+            ..having((state) => state.roundScore, 'roundScore', 0)
+            ..having((state) => state.rounds, 'rounds', 2)
+            ..having(
               (state) => state.status,
               'status',
               GameStatus.gameOver,
             ),
           isA<GameState>()
-            .having((state) => state.roundScore, 'roundScore', 0)
-            .having((state) => state.rounds, 'rounds', 1)
-            .having(
+            ..having((state) => state.roundScore, 'roundScore', 0)
+            ..having((state) => state.rounds, 'rounds', 1)
+            ..having(
               (state) => state.status,
               'status',
               GameStatus.gameOver,
@@ -219,17 +219,17 @@ void main() {
           ..add(const MultiplierIncreased()),
         expect: () => [
           isA<GameState>()
-            .having((state) => state.status, 'status', GameStatus.playing),
+            ..having((state) => state.status, 'status', GameStatus.playing),
           isA<GameState>()
-            .having((state) => state.multiplier, 'multiplier', 2)
-            .having(
+            ..having((state) => state.multiplier, 'multiplier', 2)
+            ..having(
               (state) => state.status,
               'status',
               GameStatus.gameOver,
             ),
           isA<GameState>()
-            .having((state) => state.multiplier, 'multiplier', 3)
-            .having(
+            ..having((state) => state.multiplier, 'multiplier', 3)
+            ..having(
               (state) => state.status,
               'status',
               GameStatus.gameOver,
@@ -268,22 +268,22 @@ void main() {
           isA<GameState>()
             .having((state) => state.status, 'status', GameStatus.playing),
           isA<GameState>()
-            .having((state) => state.multiplier, 'multiplier', 1)
-            .having(
+            ..having((state) => state.multiplier, 'multiplier', 1)
+            ..having(
               (state) => state.status,
               'status',
               GameStatus.gameOver,
             ),
           isA<GameState>()
-            .having((state) => state.multiplier, 'multiplier', 1)
-            .having(
+            ..having((state) => state.multiplier, 'multiplier', 1)
+            ..having(
               (state) => state.status,
               'status',
               GameStatus.gameOver,
             ),
           isA<GameState>()
-            .having((state) => state.multiplier, 'multiplier', 1)
-            .having(
+            ..having((state) => state.multiplier, 'multiplier', 1)
+            ..having(
               (state) => state.status,
               'status',
               GameStatus.gameOver,

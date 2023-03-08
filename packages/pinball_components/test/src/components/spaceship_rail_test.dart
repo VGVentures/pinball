@@ -16,8 +16,8 @@ void main() {
     ];
     final flameTester = FlameTester(() => TestGame(assets));
 
-    testWithGame<TestGame>('loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('loads correctly', flameTester.createGame,
+        (game) async {
       final component = SpaceshipRail();
       await game.ensureAdd(component);
       expect(game.contains(component), isTrue);

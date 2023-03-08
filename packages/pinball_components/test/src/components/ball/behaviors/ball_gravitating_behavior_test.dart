@@ -21,9 +21,8 @@ void main() {
       );
     });
 
-    testWithGame<TestGame>('can be loaded',
-        flameTester.createGame,
-            (game) async {
+    testWithGame<TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final ball = Ball.test();
       final behavior = BallGravitatingBehavior();
       await ball.add(behavior);

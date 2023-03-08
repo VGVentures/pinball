@@ -23,8 +23,8 @@ void main() {
     ];
     final flameTester = FlameTester(() => TestGame(assets));
 
-    testWithGame<TestGame>('renders correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('renders correctly', flameTester.createGame,
+        (game) async {
       await game.ensureAdd(ErrorComponent(label: 'Error Message'));
       final count = game.descendants().countTexts('Error Message');
 
@@ -32,8 +32,8 @@ void main() {
     });
 
     group('when the text is longer than one line', () {
-      testWithGame<TestGame>('renders correctly',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('renders correctly', flameTester.createGame,
+          (game) async {
         await game.ensureAdd(
           ErrorComponent(
             label: 'Error With A Longer Message',
@@ -48,8 +48,8 @@ void main() {
     });
 
     group('when using the bold font', () {
-      testWithGame<TestGame>('renders correctly',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('renders correctly', flameTester.createGame,
+          (game) async {
         await game.ensureAdd(ErrorComponent.bold(label: 'Error Message'));
         final count = game.descendants().countTexts('Error Message');
 

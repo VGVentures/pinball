@@ -16,5 +16,6 @@ class BallImpulsingBehavior extends Component with ParentIsA<Ball> {
   Future<void> onLoad() async {
     await super.onLoad();
     parent.body.linearVelocity = _impulse;
+    removeFromParent();
   }
 }

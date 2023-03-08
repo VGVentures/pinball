@@ -49,18 +49,18 @@ void main() {
         );
       });
 
-      test('headline4 matches PinballTextStyle#headline4', () {
+      test('headline4 matches PinballTextStyle#headline5', () {
         expect(
           PinballTheme.standard.textTheme.headlineMedium!.fontSize,
-          PinballTextStyle.headline4.fontSize,
+          PinballTextStyle.headline5.fontSize,
         );
         expect(
           PinballTheme.standard.textTheme.headlineMedium!.color,
-          PinballTextStyle.headline4.color,
+          PinballTextStyle.headline5.color,
         );
         expect(
           PinballTheme.standard.textTheme.headlineMedium!.fontFamily,
-          PinballTextStyle.headline4.fontFamily,
+          PinballTextStyle.headline5.fontFamily,
         );
       });
 

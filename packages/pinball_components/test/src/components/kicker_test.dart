@@ -62,8 +62,8 @@ void main() {
       },
     );
 
-    testWithGame<TestGame>('closes bloc when removed',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('closes bloc when removed', flameTester.createGame,
+        (game) async {
       final bloc = _MockKickerCubit();
       whenListen(
         bloc,
@@ -84,8 +84,8 @@ void main() {
     });
 
     group('adds', () {
-      testWithGame<TestGame>('new children',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+          (game) async {
         final component = Component();
         final kicker = Kicker(
           side: BoardSide.left,
@@ -95,8 +95,8 @@ void main() {
         expect(kicker.children, contains(component));
       });
 
-      testWithGame<TestGame>('a BumpingBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('a BumpingBehavior', flameTester.createGame,
+          (game) async {
         final kicker = Kicker(
           side: BoardSide.left,
         );
@@ -107,8 +107,8 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('a KickerBallContactBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a KickerBallContactBehavior', flameTester.createGame, (game) async {
         final kicker = Kicker(
           side: BoardSide.left,
         );
@@ -119,8 +119,8 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('a KickerBlinkingBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('a KickerBlinkingBehavior', flameTester.createGame,
+          (game) async {
         final kicker = Kicker(
           side: BoardSide.left,
         );

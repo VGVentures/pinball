@@ -57,7 +57,8 @@ void main() {
     );
 
     testWithGame<TestGame>(
-      'completes when checked after it is finished', tester.createGame,
+      'completes when checked after it is finished',
+      tester.createGame,
       (game) async {
         await game.add(CameraZoom(value: 40));
         game.update(10);
@@ -69,7 +70,8 @@ void main() {
     );
 
     testWithGame<TestGame>(
-      'completes when checked before it is finished', tester.createGame,
+      'completes when checked before it is finished',
+      tester.createGame,
       (game) async {
         final zoom = CameraZoom(value: 40);
         final future = zoom.completed;

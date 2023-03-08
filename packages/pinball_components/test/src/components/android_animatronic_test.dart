@@ -62,7 +62,7 @@ void main() {
 
     group('adds', () {
       testWithGame<TestGame>('new children', flameTester.createGame,
-              (game) async {
+          (game) async {
         final component = Component();
         final androidAnimatronic = AndroidAnimatronic(
           children: [component],
@@ -71,7 +71,9 @@ void main() {
         expect(androidAnimatronic.children, contains(component));
       });
 
-      testWithGame<TestGame>('a AndroidAnimatronicBallContactBehavior', flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a AndroidAnimatronicBallContactBehavior', flameTester.createGame,
+          (game) async {
         final androidAnimatronic = AndroidAnimatronic();
         await game.ensureAdd(androidAnimatronic);
         expect(

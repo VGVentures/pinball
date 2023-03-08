@@ -38,8 +38,8 @@ void main() {
       bloc = _MockMultiplierCubit();
     });
 
-    testWithGame<_TestGame>('"x2" loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('"x2" loads correctly', flameTester.createGame,
+        (game) async {
       final multiplier = Multiplier.x2(
         position: Vector2.zero(),
         angle: 0,
@@ -48,8 +48,8 @@ void main() {
       expect(game.contains(multiplier), isTrue);
     });
 
-    testWithGame<_TestGame>('"x3" loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('"x3" loads correctly', flameTester.createGame,
+        (game) async {
       final multiplier = Multiplier.x3(
         position: Vector2.zero(),
         angle: 0,
@@ -58,8 +58,8 @@ void main() {
       expect(game.contains(multiplier), isTrue);
     });
 
-    testWithGame<_TestGame>('"x4" loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('"x4" loads correctly', flameTester.createGame,
+        (game) async {
       final multiplier = Multiplier.x4(
         position: Vector2.zero(),
         angle: 0,
@@ -68,8 +68,8 @@ void main() {
       expect(game.contains(multiplier), isTrue);
     });
 
-    testWithGame<_TestGame>('"x5" loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('"x5" loads correctly', flameTester.createGame,
+        (game) async {
       final multiplier = Multiplier.x5(
         position: Vector2.zero(),
         angle: 0,
@@ -78,8 +78,8 @@ void main() {
       expect(game.contains(multiplier), isTrue);
     });
 
-    testWithGame<_TestGame>('"x6" loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('"x6" loads correctly', flameTester.createGame,
+        (game) async {
       final multiplier = Multiplier.x6(
         position: Vector2.zero(),
         angle: 0,
@@ -510,8 +510,8 @@ void main() {
       });
     });
 
-    testWithGame<_TestGame>('closes bloc when removed',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('closes bloc when removed', flameTester.createGame,
+        (game) async {
       whenListen(
         bloc,
         const Stream<MultiplierState>.empty(),

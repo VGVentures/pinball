@@ -72,8 +72,8 @@ void main() {
       },
     );
 
-    testWithGame<TestGame>('closes bloc when removed',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('closes bloc when removed', flameTester.createGame,
+        (game) async {
       final bloc = _MockChromeDinoCubit();
       whenListen(
         bloc,
@@ -91,8 +91,9 @@ void main() {
     });
 
     group('adds', () {
-      testWithGame<TestGame>('a ChromeDinoMouthOpeningBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a ChromeDinoMouthOpeningBehavior', flameTester.createGame,
+          (game) async {
         final chromeDino = ChromeDino();
         await game.ensureAdd(chromeDino);
         expect(
@@ -103,8 +104,9 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('a ChromeDinoSwivelingBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a ChromeDinoSwivelingBehavior', flameTester.createGame,
+          (game) async {
         final chromeDino = ChromeDino();
         await game.ensureAdd(chromeDino);
         expect(
@@ -113,8 +115,8 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('a ChromeDinoChompingBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a ChromeDinoChompingBehavior', flameTester.createGame, (game) async {
         final chromeDino = ChromeDino();
         await game.ensureAdd(chromeDino);
         expect(
@@ -123,8 +125,8 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('a ChromeDinoSpittingBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a ChromeDinoSpittingBehavior', flameTester.createGame, (game) async {
         final chromeDino = ChromeDino();
         await game.ensureAdd(chromeDino);
         expect(
@@ -133,8 +135,8 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('new children',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+          (game) async {
         final component = Component();
         final chromeDino = ChromeDino(
           children: [component],

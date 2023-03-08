@@ -78,8 +78,8 @@ void main() {
     );
 
     group('adds', () {
-      testWithGame<_TestGame>('a FlameBlocProvider',
-          flameTester.createGame, (game) async {
+      testWithGame<_TestGame>('a FlameBlocProvider', flameTester.createGame,
+          (game) async {
         final ramp = SpaceshipRamp();
         await game.ensureAdd(ramp);
         expect(
@@ -122,8 +122,8 @@ void main() {
         },
       );
 
-      testWithGame<_TestGame>('new children',
-          flameTester.createGame, (game) async {
+      testWithGame<_TestGame>('new children', flameTester.createGame,
+          (game) async {
         final component = Component();
         final ramp = SpaceshipRamp(children: [component]);
         await game.ensureAdd(ramp);
@@ -138,8 +138,8 @@ void main() {
       expect(SpaceshipRampBase(), isA<SpaceshipRampBase>());
     });
 
-    testWithGame<_TestGame>('can be loaded',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final component = SpaceshipRampBase();
       await game.ensureAdd(component);
       expect(game.children, contains(component));
@@ -183,8 +183,8 @@ void main() {
       expect(SpaceshipRampBoardOpening(), isA<SpaceshipRampBoardOpening>());
     });
 
-    testWithGame<_TestGame>('can be loaded',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final component = SpaceshipRampBoardOpening();
       final parent = SpaceshipRamp.test();
       await game.pump(parent, bloc: _MockSpaceshipRampCubit());
@@ -193,8 +193,9 @@ void main() {
       expect(parent.children, contains(component));
     });
 
-    testWithGame<_TestGame>('adds a RampBallAscendingContactBehavior',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>(
+        'adds a RampBallAscendingContactBehavior', flameTester.createGame,
+        (game) async {
       final component = SpaceshipRampBoardOpening();
       final parent = SpaceshipRamp.test();
       await game.pump(parent, bloc: _MockSpaceshipRampCubit());

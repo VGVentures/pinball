@@ -23,15 +23,15 @@ void main() {
   final flameTester = FlameTester(() => TestGame(assets));
 
   group('SkillShot', () {
-    testWithGame<TestGame>('loads correctly',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('loads correctly', flameTester.createGame,
+        (game) async {
       final skillShot = SkillShot();
       await game.ensureAdd(skillShot);
       expect(game.contains(skillShot), isTrue);
     });
 
-    testWithGame<TestGame>('closes bloc when removed',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('closes bloc when removed', flameTester.createGame,
+        (game) async {
       final bloc = _MockSkillShotCubit();
       whenListen(
         bloc,
@@ -49,8 +49,8 @@ void main() {
     });
 
     group('adds', () {
-      testWithGame<TestGame>('new children',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>('new children', flameTester.createGame,
+          (game) async {
         final component = Component();
         final skillShot = SkillShot(
           children: [component],
@@ -59,8 +59,9 @@ void main() {
         expect(skillShot.children, contains(component));
       });
 
-      testWithGame<TestGame>('a SkillShotBallContactBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a SkillShotBallContactBehavior', flameTester.createGame,
+          (game) async {
         final skillShot = SkillShot();
         await game.ensureAdd(skillShot);
         expect(
@@ -69,8 +70,8 @@ void main() {
         );
       });
 
-      testWithGame<TestGame>('a SkillShotBlinkingBehavior',
-          flameTester.createGame, (game) async {
+      testWithGame<TestGame>(
+          'a SkillShotBlinkingBehavior', flameTester.createGame, (game) async {
         final skillShot = SkillShot();
         await game.ensureAdd(skillShot);
         expect(

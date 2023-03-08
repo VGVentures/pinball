@@ -10,8 +10,8 @@ import 'package:pinball_flame/pinball_flame.dart';
 
 import '../../../helpers/helpers.dart';
 
-class _MockAndroidSpaceshipCubit extends Mock implements AndroidSpaceshipCubit {
-}
+class _MockAndroidSpaceshipCubit extends Mock
+    implements AndroidSpaceshipCubit {}
 
 void main() {
   group('AndroidSpaceship', () {
@@ -27,7 +27,7 @@ void main() {
     });
 
     testWithGame<TestGame>('loads correctly', flameTester.createGame,
-            (game) async {
+        (game) async {
       final component =
           FlameBlocProvider<AndroidSpaceshipCubit, AndroidSpaceshipState>.value(
         value: bloc,

@@ -16,7 +16,8 @@ void main() {
 
   group('BoardBackgroundSpriteComponent', () {
     testWithGame<TestGame>(
-      'loads correctly', flameTester.createGame,
+      'loads correctly',
+      flameTester.createGame,
       (game) async {
         final boardBackground = BoardBackgroundSpriteComponent();
         await game.ensureAdd(boardBackground);

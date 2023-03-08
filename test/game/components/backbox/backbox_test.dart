@@ -25,8 +25,16 @@ import 'package:platform_helper/platform_helper.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:share_repository/share_repository.dart';
 
+import '../../../helpers/overlays_extension.dart';
+
 class _TestGame extends Forge2DGame
     with HasKeyboardHandlerComponents, HasTappables {
+
+  _TestGame() {
+    withFakeOverlay('replay_button');
+    withFakeOverlay('mobiles_controls');
+  }
+
   final character = theme.DashTheme();
 
   @override

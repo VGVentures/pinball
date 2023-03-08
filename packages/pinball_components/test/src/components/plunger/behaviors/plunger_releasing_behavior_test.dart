@@ -47,15 +47,16 @@ void main() {
       );
     });
 
-    testWithGame<_TestGame>('can be loaded',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final behavior = PlungerReleasingBehavior(strength: 0);
       await game.pump(behavior);
       expect(game.descendants(), contains(behavior));
     });
 
-    testWithGame<_TestGame>('applies vertical linear velocity',
-        flameTester.createGame, (game) async {
+    testWithGame<_TestGame>(
+        'applies vertical linear velocity', flameTester.createGame,
+        (game) async {
       final plungerBloc = _MockPlungerCubit();
       final streamController = StreamController<PlungerState>();
       whenListen<PlungerState>(

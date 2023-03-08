@@ -28,8 +28,8 @@ void main() {
       );
     });
 
-    testWithGame<TestGame>('can be loaded',
-        flameTester.createGame, (game) async {
+    testWithGame<TestGame>('can be loaded', flameTester.createGame,
+        (game) async {
       final parent = ScoreComponent.test(
         points: Points.fiveThousand,
         position: Vector2.zero(),
