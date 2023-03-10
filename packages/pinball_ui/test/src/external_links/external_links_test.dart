@@ -17,34 +17,25 @@ void main() {
 
   group('openLink', () {
     test('launches the link', () async {
+      registerFallbackValue(const LaunchOptions());
       when(
         () => urlLauncher.canLaunch(any()),
       ).thenAnswer(
-        (_) async => true,
+        (_) => Future.value(true),
       );
       when(
-        () => urlLauncher.launch(
+        () => urlLauncher.launchUrl(
           any(),
-          useSafariVC: any(named: 'useSafariVC'),
-          useWebView: any(named: 'useWebView'),
-          enableJavaScript: any(named: 'enableJavaScript'),
-          enableDomStorage: any(named: 'enableDomStorage'),
-          universalLinksOnly: any(named: 'universalLinksOnly'),
-          headers: any(named: 'headers'),
+          any(),
         ),
       ).thenAnswer(
-        (_) async => true,
+        (_) => Future.value(true),
       );
       await openLink('uri');
       verify(
-        () => urlLauncher.launch(
+        () => urlLauncher.launchUrl(
           any(),
-          useSafariVC: any(named: 'useSafariVC'),
-          useWebView: any(named: 'useWebView'),
-          enableJavaScript: any(named: 'enableJavaScript'),
-          enableDomStorage: any(named: 'enableDomStorage'),
-          universalLinksOnly: any(named: 'universalLinksOnly'),
-          headers: any(named: 'headers'),
+          any()
         ),
       );
     });
