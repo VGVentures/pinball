@@ -73,9 +73,10 @@ void main() {
       expect(FlutterForestBonusBehavior(), isA<FlutterForestBonusBehavior>());
     });
 
+
     flameTester.testGameWidget(
       'adds GameBonus.dashNest to the game '
-      'when signpost becomes fully activated',
+          'when signpost becomes fully activated',
       setUp: (game, tester) async {
         final behavior = FlutterForestBonusBehavior();
         final parent = FlutterForest.test();
@@ -88,6 +89,7 @@ void main() {
           initialState: SignpostState.inactive,
         );
 
+        await game.ready();
         await game.pump(
           parent,
           gameBloc: gameBloc,
@@ -99,7 +101,7 @@ void main() {
         await tester.pump();
 
         verify(
-          () => gameBloc.add(const BonusActivated(GameBonus.dashNest)),
+              () => gameBloc.add(const BonusActivated(GameBonus.dashNest)),
         ).called(1);
       },
     );

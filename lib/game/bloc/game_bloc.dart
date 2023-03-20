@@ -54,7 +54,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     }
   }
 
-  void _onIncreasedMultiplier(MultiplierIncreased event, Emitter<GameState> emit) {
+  void _onIncreasedMultiplier(
+    MultiplierIncreased event,
+    Emitter<GameState> emit,
+  ) {
     if (state.status.isPlaying) {
       emit(
         state.copyWith(

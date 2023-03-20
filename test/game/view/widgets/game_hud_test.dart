@@ -138,6 +138,7 @@ void main() {
           await pumpAppWithWidget(tester);
           await tester.pump();
           await Future<void>.delayed(const Duration(seconds: 6));
+          await tester.pump();
           await expectLater(find.byType(ScoreView), findsOneWidget);
         });
       },

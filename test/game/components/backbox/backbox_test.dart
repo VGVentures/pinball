@@ -32,7 +32,7 @@ class _TestGame extends Forge2DGame
 
   _TestGame() {
     withFakeOverlay('replay_button');
-    withFakeOverlay('mobiles_controls');
+    withFakeOverlay('mobile_controls');
   }
 
   final character = theme.DashTheme();
@@ -490,6 +490,14 @@ void main() {
       setUp(() async {
         urlLauncher = _MockUrlLauncher();
         UrlLauncherPlatform.instance = urlLauncher;
+        registerFallbackValue(const LaunchOptions());
+        when(
+              () => urlLauncher.canLaunch(any()),
+        ).thenAnswer(
+              (_) => Future.value(true),
+        );
+        when(() => urlLauncher.launchUrl(any(), any()))
+            .thenAnswer((_) => Future.value(true));
       });
 
       testWithGame<_TestGame>(
@@ -522,20 +530,6 @@ void main() {
         'opens Facebook link when sharing with Facebook',
         flameTester.createGame,
         (game) async {
-          when(() => urlLauncher.canLaunch(any()))
-              .thenAnswer((_) async => true);
-          when(
-            () => urlLauncher.launch(
-              any(),
-              useSafariVC: any(named: 'useSafariVC'),
-              useWebView: any(named: 'useWebView'),
-              enableJavaScript: any(named: 'enableJavaScript'),
-              enableDomStorage: any(named: 'enableDomStorage'),
-              universalLinksOnly: any(named: 'universalLinksOnly'),
-              headers: any(named: 'headers'),
-            ),
-          ).thenAnswer((_) async => true);
-
           final state = ShareState(score: 100);
           whenListen(
             bloc,
@@ -595,19 +589,6 @@ void main() {
               platform: SharePlatform.twitter,
             ),
           ).thenReturn(fakeUrl);
-          when(() => urlLauncher.canLaunch(any()))
-              .thenAnswer((_) async => true);
-          when(
-            () => urlLauncher.launch(
-              any(),
-              useSafariVC: any(named: 'useSafariVC'),
-              useWebView: any(named: 'useWebView'),
-              enableJavaScript: any(named: 'enableJavaScript'),
-              enableDomStorage: any(named: 'enableDomStorage'),
-              universalLinksOnly: any(named: 'universalLinksOnly'),
-              headers: any(named: 'headers'),
-            ),
-          ).thenAnswer((_) async => true);
 
           final backbox = Backbox.test(
             bloc: bloc,

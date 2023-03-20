@@ -232,7 +232,7 @@ void main() {
             await game.ready();
 
             expect(
-              flipper.children.whereType<FlipperKeyControllingBehavior>(),
+              flipper.descendants().whereType<FlipperKeyControllingBehavior>(),
               isEmpty,
             );
           },
@@ -267,7 +267,7 @@ void main() {
             await game.ready();
 
             expect(
-              plunger.children.whereType<PlungerKeyControllingBehavior>(),
+              plunger.descendants().whereType<PlungerKeyControllingBehavior>(),
               isEmpty,
             );
           },
@@ -305,7 +305,7 @@ void main() {
             await game.ready();
 
             expect(
-              plunger.children.whereType<PlungerPullingBehavior>(),
+              plunger.descendants().whereType<PlungerPullingBehavior>(),
               isEmpty,
             );
           },

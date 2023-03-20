@@ -92,6 +92,14 @@ void main() {
   setUp(() async {
     urlLauncher = _MockUrlLauncher();
     UrlLauncherPlatform.instance = urlLauncher;
+    registerFallbackValue(const LaunchOptions());
+    when(
+          () => urlLauncher.canLaunch(any()),
+    ).thenAnswer(
+          (_) => Future.value(true),
+    );
+    when(() => urlLauncher.launchUrl(any(), any()))
+        .thenAnswer((_) => Future.value(true));
   });
 
   group('InfoDisplay', () {
@@ -132,14 +140,9 @@ void main() {
       (game) async {
         when(() => urlLauncher.canLaunch(any())).thenAnswer((_) async => true);
         when(
-          () => urlLauncher.launch(
+          () => urlLauncher.launchUrl(
             any(),
-            useSafariVC: any(named: 'useSafariVC'),
-            useWebView: any(named: 'useWebView'),
-            enableJavaScript: any(named: 'enableJavaScript'),
-            enableDomStorage: any(named: 'enableDomStorage'),
-            universalLinksOnly: any(named: 'universalLinksOnly'),
-            headers: any(named: 'headers'),
+            any(),
           ),
         ).thenAnswer((_) async => true);
 
@@ -153,14 +156,9 @@ void main() {
         await game.ready();
 
         verify(
-          () => urlLauncher.launch(
+          () => urlLauncher.launchUrl(
             ShareRepository.googleIOEvent,
-            useSafariVC: any(named: 'useSafariVC'),
-            useWebView: any(named: 'useWebView'),
-            enableJavaScript: any(named: 'enableJavaScript'),
-            enableDomStorage: any(named: 'enableDomStorage'),
-            universalLinksOnly: any(named: 'universalLinksOnly'),
-            headers: any(named: 'headers'),
+            any(),
           ),
         );
       },
@@ -171,17 +169,6 @@ void main() {
       flameTester.createGame,
       (game) async {
         when(() => urlLauncher.canLaunch(any())).thenAnswer((_) async => true);
-        when(
-          () => urlLauncher.launch(
-            any(),
-            useSafariVC: any(named: 'useSafariVC'),
-            useWebView: any(named: 'useWebView'),
-            enableJavaScript: any(named: 'enableJavaScript'),
-            enableDomStorage: any(named: 'enableDomStorage'),
-            universalLinksOnly: any(named: 'universalLinksOnly'),
-            headers: any(named: 'headers'),
-          ),
-        ).thenAnswer((_) async => true);
 
         final component = GameOverInfoDisplay();
         await game.pump(component);
@@ -193,14 +180,9 @@ void main() {
         await game.ready();
 
         verify(
-          () => urlLauncher.launch(
+          () => urlLauncher.launchUrl(
             ShareRepository.openSourceCode,
-            useSafariVC: any(named: 'useSafariVC'),
-            useWebView: any(named: 'useWebView'),
-            enableJavaScript: any(named: 'enableJavaScript'),
-            enableDomStorage: any(named: 'enableDomStorage'),
-            universalLinksOnly: any(named: 'universalLinksOnly'),
-            headers: any(named: 'headers'),
+            any(),
           ),
         );
       },
